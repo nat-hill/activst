@@ -14,8 +14,10 @@ class Profile extends Component {
           My Profile
         </h3>
         <p class='profile'>
-          This is your Profile. Something will happen here at some point.
+          Gamer Johnson
         </p>
+        <p>Medals: None </p>
+        <p>Achievements: None </p>
       </div>
     )
   }
