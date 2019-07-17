@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './Login';
 import User from './User';
 import AboutUs from './aboutUs';
+import Profile from './myProfile';
 
 const Routes = () => (
   <Router>
@@ -12,6 +13,7 @@ const Routes = () => (
       <Route exact path= {"/login"} component={() => <Login />}/>
       <Route exact path= {"/user"} component={() => <User />}/>
       <Route exact path= {"/aboutUs"} component={() => <AboutUs />}/>
+      <Route exact path= {"/profile"} component={() => <Profile />}/>
     </div>
   </Router>
 );
