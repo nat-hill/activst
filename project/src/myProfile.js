@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './App.css'
+import './myProfile.css';
+import './App.css';
 
 class Profile extends Component {
   constructor() {
@@ -9,7 +10,7 @@ class Profile extends Component {
   render(){
     return(
       <div class ='profilePage'>
-        <h3>
+        <h3 class = 'heading'>
           My Profile
         </h3>
         <p class='profile'>
