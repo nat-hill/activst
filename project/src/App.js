@@ -9,9 +9,6 @@ class App extends Component {
   }
   render(){
     return(
-      <head>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      </head>
       <div>
         <h1 class ="header1">
         activst
@@ -31,7 +28,7 @@ class App extends Component {
               <a class="nav" href="map.html">Map</a>
             </li>
             <li class ="listb">
-              <a class="nav" href="profile.html">My Profile</a>
+              <a class="nav" href="myProfile">My Profile</a>
             </li>
             <li class ="listb">
               <a class="nav" href="leaderboard.html">Leaderboard</a>

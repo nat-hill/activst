@@ -13,7 +13,7 @@ const Routes = () => (
       <Route exact path= {"/login"} component={() => <Login />}/>
       <Route exact path= {"/user"} component={() => <User />}/>
       <Route exact path= {"/aboutUs"} component={() => <AboutUs />}/>
-      <Route exact path= {"/profile"} component={() => <Profile />}/>
+      <Route exact path= {"/myProfile"} component={() => <Profile />}/>
     </div>
   </Router>
 );
