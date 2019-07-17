@@ -34,7 +34,7 @@ class App extends Component {
               <a class="nav" href="leaderboard.html">Leaderboard</a>
             </li>
             <li class="listb">
-              <a class="nav" href="aboutUs.html">About Us</a>
+              <a class="nav" href="aboutUs">About Us</a>
             </li>
           </ul>
         </div>

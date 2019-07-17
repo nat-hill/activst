@@ -1,4 +1,4 @@
-import React, {Component} from 'react;';
+import React, {Component} from 'react';
 import './App.css'
 
 class AboutUs extends Component {
@@ -14,7 +14,7 @@ class AboutUs extends Component {
         We are a group of 4 rising-juniors who are committed to helping the world. We've decided that to do that, we would create a platform to allow younger generations -- like ourselves -- protest effectively. Our service, Activst, provides anyone with a device and access to the internet with a chance to form their own protest. With a built-in reward system, and an easy way to create and attend protests, we hope that anyone who wants to fight for a cause can.
       </p>
         <div class='contactList'>
-        <h2> Contact Us </h>
+        <h2> Contact Us </h2>
           <ul>
             <ul>
               William Hill
@@ -46,3 +46,5 @@ class AboutUs extends Component {
     )
   }
 }
+
+export default AboutUs;
