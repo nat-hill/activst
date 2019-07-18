@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './myProfile.css';
 import './App.css';
-import './myProfile.html';
 
 class Profile extends Component {
   constructor() {
