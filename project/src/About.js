@@ -22,44 +22,13 @@ class About extends Component {
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
           </head>
           <body>
+          <div class="NavContainer">
+            <Navbar />
+          </div>
             <div class="container">
               <div class="masthead">
-                <Navbar />
-                <nav class="navbar navbar-light bg-faded rounded mb-3">
-                  <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-target="#navbarCollapse" data-toggle="collapse">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="navbar-toggleable-mb collapse" id="navbarCollapse" aria-expanded="false">
-                    <ul class="nav navbar-nav text-md-center justify-content-mb-between">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="#">
-                          Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="myProfile">My Profile</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="aboutUs">About Us</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdown01" aria-expanded="false" aria-haspopup="true" href="http://example.com" data-toggle="dropdown">Dropdown</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another Action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
+
+
               </div>
               <div class="jumbotron">
                 <h1>Our mission</h1>

@@ -117,6 +117,12 @@
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+
+}
+
+.NavContainer{
+  width: 100% ;
+  margin: 0;
 }
 
 @keyframes App-logo-spin {
