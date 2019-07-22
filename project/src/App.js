@@ -37,9 +37,11 @@ class App extends Component {
               <a class="nav" href="aboutUs">About Us</a>
             </li>
           </ul>
+          <script src="./NewMap.js"></script>
         </div>
       </div>
     );
+
   }
 }
 

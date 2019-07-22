@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -7,6 +9,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+#mapid { height: 500px; }
+
 
 .App-header {
   background-color: #282c34;
