@@ -10,7 +10,10 @@
   pointer-events: none;
 }
 
-#mapid { height: 500px; }
+#mapid { height: 600px;
+         width: 100%;
+
+}
 
 
 .App-header {
