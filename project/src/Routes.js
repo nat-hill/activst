@@ -6,6 +6,7 @@ import User from './User';
 import AboutUs from './aboutUs';
 import Profile from './myProfile';
 import Leaderboard from './Leaderboard'
+import Protest from './protest'
 const Routes = () => (
   <Router>
     <div>
@@ -15,6 +16,8 @@ const Routes = () => (
       <Route exact path= {"/aboutUs"} component={() => <AboutUs />}/>
       <Route exact path= {"/myProfile"} component={() => <Profile />}/>
       <Route exact path= {"/Leaderboard"} component={() => <Leaderboard />}/>
+      <Route exact path= {"/protest.js"} component={() => <Protest />}/>
+
     </div>
   </Router>
 );

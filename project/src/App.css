@@ -1,5 +1,4 @@
 
-
 .App {
   text-align: center;
 }
@@ -53,7 +52,7 @@
 
 .listb a {
     display: block;
-    color: #FFFFFF; border:1px solid #000000;
+    color: #DCDCDC; border:1px solid #000000;
     text-align: center;
     padding: 20px;
     text-decoration: none;
@@ -71,6 +70,19 @@
 }
 .contactList{
   ;
+}
+.header1 {
+  text-align: center;
+  color: #DCDCDC;
+  padding-top: 30px;
+}
+.homePageBackground {
+  background-color: #505050;
+}
+.logo1 {
+  position: relative;
+  height: 79px;
+  width: 207px;
 }
 
 @keyframes App-logo-spin {
