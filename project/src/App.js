@@ -27,7 +27,7 @@ class App extends Component {
                    radius: 500
                }).addTo(mymap);
                circle.bindPopup("Pride Protest Here!");
-            
+
   }
 
   render(){
@@ -38,7 +38,7 @@ class App extends Component {
     crossorigin=""/>
 
         <h1 class ="header1">
-        activst
+        <a href="https://ibb.co/6YPNDPn"><img src="https://i.ibb.co/6YPNDPn/image.png" /></a>
         </h1>
         <meta name = "description" content = "Prostest Maker"/>
         <meta name = "keywords" content = "Protest, Activism, politics, actvst"/>
