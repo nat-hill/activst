@@ -38,7 +38,7 @@ class App extends Component {
     crossorigin=""/>
 
         <h1 class ="header1">
-        <a href="https://ibb.co/6YPNDPn"><img src="https://i.ibb.co/6YPNDPn/image.png" /></a>
+        <img class="logo1" src="https://i.imgur.com/GjeVtFG.png" alt="logo"/>
         </h1>
         <meta name = "description" content = "Prostest Maker"/>
         <meta name = "keywords" content = "Protest, Activism, politics, actvst"/>

@@ -75,13 +75,15 @@
 .header1 {
   text-align: center;
   color: #DCDCDC;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 .homePageBackground {
   background-color: #505050;
 }
-.logoimage {
-  
+.logo1 {
+  position: relative;
+  height: 79px;
+  width: 207px;
 }
 
 @keyframes App-logo-spin {
