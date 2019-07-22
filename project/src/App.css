@@ -75,7 +75,8 @@
 .header1 {
   text-align: center;
   color: #DCDCDC;
-  padding-top: 30px;
+  padding-top: 10px;
+  margin: 0px;
 }
 .homePageBackground {
   background-color: #505050;
