@@ -119,6 +119,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.listb a:hover:not(.active) {
+    background-color: #CDCDCD;
+    color: #555555;
+}
+
+.active {
+    background-color: #000000;
+    color: #FFF000;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
