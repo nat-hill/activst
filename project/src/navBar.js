@@ -9,24 +9,40 @@ class Navbar extends Component {
   }
   render(){
     return(
-      <div>
-        <ul class="ul">
-          <li class="li">
-            <a class ="nav" href="App.js">Home Page</a>
-          </li>
-          <li class="li">
-            <a class ="nav" href="myProfile.js">My Profile</a>
-          </li>
-          <li class="li">
-            <a class ="nav" href="">Start a Protest</a>
-          </li>
-          <li class="li">
-            <a class="nav" href="">Leaderboard</a>
-          </li>
-          <li class="li">
-            <a class="nav" href="aboutUs.js">About Us</a>
-          </li>
-        </ul>
+        <div class ="homePageBackground">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+
+          <h1 class ="header1">
+          <img class="logo1" src="https://i.imgur.com/GjeVtFG.png" alt="logo"/>
+          </h1>
+          <meta name = "description" content = "Prostest Maker"/>
+          <meta name = "keywords" content = "Protest, Activism, politics, actvst"/>
+          <link rel = "stylesheet" type = "text/css" href="ssheet1.css"/>
+          <div class = "sticky">
+            <ul class ="lista">
+              <li class = "listb">
+                <a class="nav" href="homePage.html">Home</a>
+              </li>
+              <li class = "listb">
+                <a class="nav" href="/login">Log In</a>
+              </li>
+              <li class = "listb">
+                <a class="nav" href="/protest.js">Create a Protest</a>
+              </li>
+              <li class ="listb">
+                <a class="nav" href="myProfile">My Profile</a>
+              </li>
+              <li class ="listb">
+                <a class="nav" href="leaderboard.html">Leaderboard</a>
+              </li>
+              <li class="listb">
+                <a class="nav" href="aboutUs">About Us</a>
+              </li>
+
+            </ul>
+        </div>
       </div>
     );
   }
