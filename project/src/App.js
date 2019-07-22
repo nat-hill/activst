@@ -52,7 +52,7 @@ class App extends Component {
               <a class="nav" href="/login">Log In</a>
             </li>
             <li class = "listb">
-              <a class="nav" href="map.html">Map</a>
+              <a class="nav" href="protest.js">Create a Protest</a>
             </li>
             <li class ="listb">
               <a class="nav" href="myProfile">My Profile</a>
