@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import AppComponent from './AppComponent';
 import './App.css';
 import Navbar from './navBar';
 
@@ -25,7 +24,6 @@ class About extends Component {
           <body>
             <div class="container">
               <div class="masthead">
-                <h3 class="text-muted">About Us</h3>
                 <Navbar />
                 <nav class="navbar navbar-light bg-faded rounded mb-3">
                   <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-target="#navbarCollapse" data-toggle="collapse">
