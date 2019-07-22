@@ -1,0 +1,138 @@
+const services = [{
+  "_id":1,
+  "fname":"John",
+  "lname":"Dough",
+  "service":"Nail Technician",
+  "latitude":-73.56709,
+  "longitude":41.77890,
+  "availability":{
+    "Sunday":[1200,1430,1700],
+    "Monday":[],
+    "Tuesday":[1330],
+    "Wednesday":[],
+    "Thursday":[],
+    "Friday":[1200,1300,1630],
+    "Saturday":[]
+  }
+},
+{
+  "_id":2,
+  "fname":"Jane",
+  "lname":"Dome",
+  "service":"Hair Stylist",
+  "latitude":-73.2854,
+  "longitude":41.5,
+  "availability":{
+    "Sunday":[],
+    "Monday":[1300],
+    "Tuesday":[1330,1500],
+    "Wednesday":[1100,1630],
+    "Thursday":[],
+    "Friday":[],
+    "Saturday":[]
+  }
+},
+{
+  "_id":3,
+  "fname":"Jim",
+  "lname":"Crone",
+  "service":"Hair Stylist",
+  "latitude":-74.111,
+  "longitude":42.1089,
+  "availability":{
+    "Sunday":[1200],
+    "Monday":[1430],
+    "Tuesday":[1330],
+    "Wednesday":[1800],
+    "Thursday":[1530],
+    "Friday":[],
+    "Saturday":[1100,1200,1300]
+  }
+},
+{
+  "_id":4,
+  "fname":"James",
+  "lname":"Shough",
+  "service":"Cosmetologist",
+  "latitude":-73.56309,
+  "longitude":41.74678,
+  "availability":{
+    "Sunday":[1300,1530],
+    "Monday":[1200],
+    "Tuesday":[],
+    "Wednesday":[1500,1600],
+    "Thursday":[1000,1200],
+    "Friday":[1330,1600],
+    "Saturday":[]
+  }
+},
+{
+  "_id":5,
+  "fname":"Janet",
+  "lname":"Scone",
+  "service":"Nail Technician",
+  "latitude":-73.4430,
+  "longitude":41.2698,
+  "availability":{
+    "Sunday":[],
+    "Monday":[],
+    "Tuesday":[],
+    "Wednesday":[],
+    "Thursday":[1100,1430,1500],
+    "Friday":[1200,1600],
+    "Saturday":[1700,1830]
+  }
+},
+{
+  "_id":6,
+  "fname":"Jonathan",
+  "lname":"Pro",
+  "service":"Hair Stylist",
+  "latitude":-73.56719,
+  "longitude":41.73890,
+  "availability":{
+    "Sunday":[1700],
+    "Monday":[1130,1430,1600],
+    "Tuesday":[1500],
+    "Wednesday":[],
+    "Thursday":[1230,1430,1630],
+    "Friday":[],
+    "Saturday":[1300,1500]
+  }
+},
+{
+  "_id":7,
+  "fname":"Joe",
+  "lname":"Doe",
+  "service":"Cosmetologist",
+  "latitude":-72.56709,
+  "longitude":42.77890,
+  "availability":{
+    "Sunday":[1200,1430,1700],
+    "Monday":[1200,1430,1700],
+    "Tuesday":[1330],
+    "Wednesday":[1200,1430,1700],
+    "Thursday":[1430],
+    "Friday":[],
+    "Saturday":[]
+  }
+},
+{
+  "_id":8,
+  "fname":"Jack",
+  "lname":"Daniels",
+  "service":"Cosmetologist",
+  "latitude":-73.44709,
+  "longitude":41.82890,
+  "availability":{
+    "Sunday":[1200,1430,1700],
+    "Monday":[],
+    "Tuesday":[1330],
+    "Wednesday":[],
+    "Thursday":[],
+    "Friday":[1200,1300,1630],
+    "Saturday":[]
+  }
+}
+];
+export default services;

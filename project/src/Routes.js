@@ -5,7 +5,7 @@ import Login from './Login';
 import User from './User';
 import AboutUs from './aboutUs';
 import Profile from './myProfile';
-
+import Leaderboard from './Leaderboard'
 const Routes = () => (
   <Router>
     <div>
@@ -14,6 +14,7 @@ const Routes = () => (
       <Route exact path= {"/user"} component={() => <User />}/>
       <Route exact path= {"/aboutUs"} component={() => <AboutUs />}/>
       <Route exact path= {"/myProfile"} component={() => <Profile />}/>
+      <Route exact path= {"/Leaderboard"} component={() => <Leaderboard />}/>
     </div>
   </Router>
 );
