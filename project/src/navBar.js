@@ -23,7 +23,7 @@ class Navbar extends Component {
           <div class = "sticky">
             <ul class ="lista">
               <li class = "listb">
-                <a class="nav" href="homePage.html">Home</a>
+                <a class="nav" href="/">Home</a>
               </li>
               <li class = "listb">
                 <a class="nav" href="/login">Log In</a>
@@ -38,7 +38,7 @@ class Navbar extends Component {
                 <a class="nav" href="leaderboard.html">Leaderboard</a>
               </li>
               <li class="listb">
-                <a class="nav" href="aboutUs">About Us</a>
+                <a class="nav" href="about">About Us</a>
               </li>
 
             </ul>
