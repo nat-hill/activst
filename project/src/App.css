@@ -53,7 +53,7 @@
 
 .listb a {
     display: block;
-    color: #FFF000; border:1px solid #000000;
+    color: #DCDCDC; border:1px solid #000000;
     text-align: center;
     padding: 20px;
     text-decoration: none;
@@ -71,6 +71,14 @@
 }
 .contactList{
   ;
+}
+.header1 {
+  text-align: center;
+  color: #DCDCDC;
+  padding-top: 10px;
+}
+.homePageBackground {
+  background-color: #505050;
 }
 
 @keyframes App-logo-spin {

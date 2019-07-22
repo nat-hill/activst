@@ -19,11 +19,20 @@ class App extends Component {
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1IjoiY3VzdW1tZXIiLCJhIjoiY2p5NXc5cXhwMDFxeTNmbzhwNWpsZTRibSJ9.204smoZZqhejVVBy7oiHfg'
         }).addTo(mymap);
+
+        var circle = L.circle([40.7127, -74.0134], {
+                   color: '#0583ad',
+                   fillColor: '#08bbf7',
+                   fillOpacity: 0.5,
+                   radius: 500
+               }).addTo(mymap);
+               circle.bindPopup("Pride Protest Here!");
+            
   }
 
   render(){
     return(
-      <div>
+      <div class ="homePageBackground">
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
