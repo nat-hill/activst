@@ -23,7 +23,7 @@ class Login extends Component {
   componentWillMount(){
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.setstate({
+        this.setState({
           signedIn: true,
           currentUser: user
         });
@@ -55,7 +55,7 @@ class Login extends Component {
     if (this.state.signedIn){
       return(
         <div>
-          <p>Hello {this.state.currentUser.displayName}.</p>
+          <p>Hello {this.state.currentUser.displayName}. From the home page, you can view the map, leaderbords, and submit a protest. </p>
           <button onClick={this.signOut}>Sign Out </button>
         </div>
       );
