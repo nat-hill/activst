@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import firestore from "./Firestore";
 import firebase from 'firebase';
+import Navbar from './navBar';
+
 class Protest extends React.Component {
   constructor() {
     super();
@@ -36,8 +38,9 @@ class Protest extends React.Component {
     });
   };
  render() {
-
-   return (
+   return(
+    <div>
+      <Navbar />
        <form onSubmit={this.addUser}>
          <input
            type="text"
@@ -75,6 +78,7 @@ class Protest extends React.Component {
 ></input>
          <button type="submit">Submit</button>
       </form>
+    </div>
   )}
 }
 export default Protest;

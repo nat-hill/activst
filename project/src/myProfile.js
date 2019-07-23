@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './myProfile.css';
 import './App.css';
+import Navbar from './navBar';
 
 class Profile extends Component {
   constructor() {
@@ -30,6 +31,7 @@ class Profile extends Component {
         </head>
 
         <body>
+          <Navbar />
           <div class = "container-fluid">
             <div class = "row extra_margin">
               <div class = "col-md-4 col-sm-12 col-xs-12">

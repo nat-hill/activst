@@ -63,22 +63,22 @@ render(){
           <div class = "sticky">
             <ul class ="lista">
               <li class = "listb">
-                <a class="nav" href="/"><b>Home</b></a>
+                <a class="nav" href="/">Home</a>
               </li>
               <li class = "listb">
-                <a class="nav" href="/history"><b>Protests in the Past</b></a>
+                <a class="nav" href="/history">Protests in the Past></a>
               </li>
               <li class = "listb">
-                <a class="nav" href="/protest.js"><b>Create a Protest</b></a>
+                <a class="nav" href="/protest.js">Create a Protest</a>
               </li>
               <li class ="listb">
-                <a class="nav" href="myProfile"><b>My Profile</b></a>
+                <a class="nav" href="myProfile">My Profile</a>
               </li>
               <li class ="listb">
                 <a class="nav" href="leaderboard">Leaderboard</a>
               </li>
               <li class="listb">
-                <a class="nav" href="about"><b>About Us</b></a>
+                <a class="nav" href="about">About Us</a>
               </li>
 
             </ul>

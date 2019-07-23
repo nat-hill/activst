@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Leaderboard.css';
 import Routes from './Routes';
+import Navbar from './navBar';
+
 class Leaderboard extends Component{
   constructor(){
     super();
@@ -25,6 +27,7 @@ class Leaderboard extends Component{
   </head>
 
   <body ng-app="boardApp">
+    <Navbar />
   	<div ng-controller="boardController">
 
   		<div class="row">
@@ -54,7 +57,7 @@ class Leaderboard extends Component{
               <td>1</td>
               <td>John Doe</td>
               <td>50</td>
-              
+
   					</tbody>
   				</table>
   			</div>

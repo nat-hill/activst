@@ -74,7 +74,7 @@
   padding-top: 10px;
 }
 .homePageBackground {
-  background-color: #53998b;
+  background-color: #8AFFFF;
 }
 .logo1 {
   position: relative;
@@ -126,7 +126,7 @@
     text-decoration: none;
 }
 
-.active {
+.listb active {
     background-color: #000000;
     color: #FFF000;
 }
