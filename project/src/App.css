@@ -87,12 +87,13 @@
   padding-top: 20px;
 }
 .body{
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size:1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #292b2c;
   background-color: #fff;
+  padding: 0;
 }
 *,::after, ::before{
   box-sizing: inherit;
@@ -115,6 +116,16 @@
 .NavContainer{
   width: 100% ;
   margin: 0;
+}
+
+.listb a:hover:not(.active) {
+    background-color: #CDCDCD;
+    color: #555555;
+}
+
+.active {
+    background-color: #000000;
+    color: #FFF000;
 }
 
 @keyframes App-logo-spin {
