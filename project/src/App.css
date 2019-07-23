@@ -80,6 +80,8 @@
   position: relative;
   height: 79px;
   width: 207px;
+  margin-left: 116px;
+  padding-bottom: 10px;
 }
 .Inline style{
 }
@@ -121,6 +123,12 @@
 .active {
     background-color: #000000;
     color: #FFF000;
+}
+
+.loginButton {
+  float: right;
+  margin: 10px;
+  margin-right: 20px;
 }
 
 @keyframes App-logo-spin {
