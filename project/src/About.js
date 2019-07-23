@@ -42,7 +42,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
+                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
                   </p>
                 </div>
                 <div class="col-lg-3">
@@ -51,7 +51,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
+                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
                   </p>
                 </div>
                 <div class="col-lg-3">
@@ -60,7 +60,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
+                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
                   </p>
                 </div>
                 <div class="col-lg-3">
@@ -69,7 +69,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
+                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
                   </p>
                 </div>
               </div>

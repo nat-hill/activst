@@ -115,6 +115,7 @@
 .listb a:hover:not(.active) {
     background-color: #CDCDCD;
     color: #555555;
+    text-decoration: none;
 }
 
 .active {
