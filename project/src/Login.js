@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from './Firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import Navbar from './navBar';
 
 const uiConfig = {
   signInFlow: 'popup',
@@ -62,7 +63,7 @@ class Login extends Component {
     }else{
       return(
         <div>
-          <h1>Please Sign In</h1>
+        <Navbar />
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
 
         </div>
