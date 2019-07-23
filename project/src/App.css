@@ -121,11 +121,15 @@
 .listb a:hover:not(.active) {
     background-color: #CDCDCD;
     color: #555555;
+    text-decoration: none;
 }
 
 .active {
     background-color: #000000;
     color: #FFF000;
+}
+.signIn {
+  padding: 90px;
 }
 
 @keyframes App-logo-spin {
