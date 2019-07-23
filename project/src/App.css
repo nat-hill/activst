@@ -80,6 +80,8 @@
   position: relative;
   height: 79px;
   width: 207px;
+  margin-left: 116px;
+  padding-bottom: 10px;
 }
 .Inline style{
 }
@@ -130,6 +132,12 @@
 }
 .signIn {
   padding: 90px;
+}
+
+.loginButton {
+  float: right;
+  margin: 10px;
+  margin-right: 20px;
 }
 
 @keyframes App-logo-spin {

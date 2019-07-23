@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AppComponent from './AppComponent';
 import './App.css';
+import Loginbutton from './loginButton';
 
 class Navbar extends Component {
   constructor(){
@@ -16,29 +17,30 @@ class Navbar extends Component {
 
           <h1 class ="header1">
           <img class="logo1" src="https://i.imgur.com/GjeVtFG.png" alt="logo"/>
+          <Loginbutton />
           </h1>
-          <meta name = "description" content = "Prostest Maker"/>
+          <meta name = "description" content = "Protest Maker"/>
           <meta name = "keywords" content = "Protest, Activism, politics, actvst"/>
           <link rel = "stylesheet" type = "text/css" href="ssheet1.css"/>
           <div class = "sticky">
             <ul class ="lista">
               <li class = "listb">
-                <a class="nav" href="/">Home</a>
+                <a class="nav" href="/"><b>Home</b></a>
               </li>
               <li class = "listb">
-                <a class="nav" href="/login">Log In</a>
+                <a class="nav" href="/history"><b>Protests in the Past</b></a>
               </li>
               <li class = "listb">
-                <a class="nav" href="/protest.js">Create a Protest</a>
+                <a class="nav" href="/protest.js"><b>Create a Protest</b></a>
               </li>
               <li class ="listb">
-                <a class="nav" href="myProfile">My Profile</a>
+                <a class="nav" href="myProfile"><b>My Profile</b></a>
               </li>
               <li class ="listb">
                 <a class="nav" href="leaderboard">Leaderboard</a>
               </li>
               <li class="listb">
-                <a class="nav" href="about">About Us</a>
+                <a class="nav" href="about"><b>About Us</b></a>
               </li>
 
             </ul>
