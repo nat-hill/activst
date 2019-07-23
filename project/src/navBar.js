@@ -28,7 +28,7 @@ class Navbar extends Component {
                 <a class="nav" href="/"><b>Home</b></a>
               </li>
               <li class = "listb">
-                <a class="nav" href="/login"><b>Log In</b></a>
+                <a class="nav" href="/history"><b>Protests in the Past</b></a>
               </li>
               <li class = "listb">
                 <a class="nav" href="/protest.js"><b>Create a Protest</b></a>
