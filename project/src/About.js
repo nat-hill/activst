@@ -43,10 +43,10 @@ class About extends Component {
                 <div class="col-lg-3">
                   <h2>William Hill</h2>
                   <p>
-                    Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                    A high school student at Brooklyn Technical High School in New York. Interested in things across the board, from puzzles to law. Excited to be working on this project.
                   </p>
                   <p>
-                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
+                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
                   </p>
                 </div>
                 <div class="col-lg-3">
@@ -55,7 +55,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
+                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
                   </p>
                 </div>
                 <div class="col-lg-3">
@@ -64,7 +64,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
+                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
                   </p>
                 </div>
                 <div class="col-lg-3">
@@ -73,7 +73,7 @@ class About extends Component {
                     Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
                   </p>
                   <p>
-                    <a class="btn btn-sm btn-info" role="button" href="#">View details</a>
+                    <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
                   </p>
                 </div>
               </div>
