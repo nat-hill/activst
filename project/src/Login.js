@@ -59,7 +59,7 @@ class Login extends Component {
       return(
         <div>
           <p>Hello {this.state.currentUser.displayName}. From the home page, you can view the map, leaderbords, and submit a protest. </p>
-          <button onClick={this.signOut}>Sign Out </button>
+          <button onClick={this.signOut}> Sign Out </button>
         </div>
       );
     }else{
