@@ -33,7 +33,7 @@ class Signoutbutton extends Component {
           <link href="justified-nav.css" rel="stylesheet" />
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
         </head>
-        <a class="btn btn-lg btn-outline-light" role="button" onClick={this.signOut}  >Sign Out</a>
+          <a class="btn btn-lg btn-outline-light" role="button" onClick={this.signOut}  href="/" > Sign Out </a>
       </div>
 
     );
