@@ -122,6 +122,9 @@
     background-color: #000000;
     color: #FFF000;
 }
+.signIn {
+  padding: 90px;
+}
 
 @keyframes App-logo-spin {
   from {

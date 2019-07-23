@@ -35,7 +35,7 @@ class Navbar extends Component {
                 <a class="nav" href="myProfile">My Profile</a>
               </li>
               <li class ="listb">
-                <a class="nav" href="leaderboard.html">Leaderboard</a>
+                <a class="nav" href="leaderboard">Leaderboard</a>
               </li>
               <li class="listb">
                 <a class="nav" href="about">About Us</a>
