@@ -37,11 +37,7 @@ class Navbar extends Component {
                 <a class="nav" href="myProfile"><b>My Profile</b></a>
               </li>
               <li class ="listb">
-<<<<<<< HEAD
-                <a class="nav" href="leaderboard.html"><b>Leaderboard</b></a>
-=======
                 <a class="nav" href="leaderboard">Leaderboard</a>
->>>>>>> 6070ea8a6a38347572e5a3a3554fe46d154d054b
               </li>
               <li class="listb">
                 <a class="nav" href="about"><b>About Us</b></a>
