@@ -3,6 +3,7 @@ import AppComponent from './AppComponent';
 import Navbar from './navBar';
 import './App.css';
 var L = require("leaflet");
+var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange', 'pink', "#4c69fa", "#fa4ce6","#52fa4c","#ef9906");
 
 class App extends Component {
   constructor(){
@@ -23,8 +24,8 @@ class App extends Component {
         }).addTo(mymap);
 
         var circle = L.circle([40.7127, -74.0134], {
-                   color: '#0583ad',
-                   fillColor: '#08bbf7',
+                   color: '',
+                   fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
                    fillOpacity: 0.5,
                    radius: 500
                }).addTo(mymap);
