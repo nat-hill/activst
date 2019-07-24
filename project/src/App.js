@@ -24,15 +24,15 @@ class App extends Component {
         }).addTo(mymap);
 
         // create popup contents
-        var customPopup = "<b>Pride Protest Here</b><img src='https://i.imgur.com/YVHmPdA.png' width='150px'/>";
+        var customPopup = "<div class='customP'> Pride Protest Here</b> ";
 
         // specify popup options
         var customOptions =
             {
-            'maxWidth': '0',
-            'width': '0',
+            'maxWidth': '200',
+        //    'background': '#000000',
             'maxHeight': '200',
-            'Height': '200',
+          //  'color': '#FFFFFF',
             'className' : 'popupCustom'
             }
 

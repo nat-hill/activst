@@ -27,7 +27,7 @@ class History extends Component {
           fillOpacity: 0.5,
           radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
-      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/New_York_City_draft_riots">The Draft Riots of 1863</a>');
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/New_York_City_draft_riots"  class="customP">The Draft Riots of 1863</a>');
 
         var circle = L.circle([40.7829, -73.9654], {
           color: '',
@@ -35,7 +35,7 @@ class History extends Component {
           fillOpacity: 0.5,
           radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
-      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Peace_walk">Peace March, April 15, 1967</a>');
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Peace_walk"  class="customP">Peace March, April 15, 1967</a>');
 
         var circle = L.circle([40.7900, -73.9650], {
           color: '',
@@ -43,7 +43,7 @@ class History extends Component {
           fillOpacity: 0.5,
           radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
-      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Anti-nuclear_protests_in_the_United_States">Anti-Nuclear March, June 12, 1982</a>');
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Anti-nuclear_protests_in_the_United_States" class="customP">Anti-Nuclear March, June 12, 1982</a>');
 
         var circle = L.circle([40.7490646, -73.9679989], {
           color: '',
@@ -51,7 +51,7 @@ class History extends Component {
           fillOpacity: 0.5,
           radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
-      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Protests_against_the_Iraq_War">Anti-Iraq War Protest, 2003</a>');
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Protests_against_the_Iraq_War" class="customP">Anti-Iraq War Protest, 2003</a>');
   }
   render(){
     return(
