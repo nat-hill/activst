@@ -20,7 +20,7 @@ class Protest extends React.Component {
        [e.target.name]: e.target.value
      });
 }
-  addUser = e => {
+  addProtest = e => {
    e.preventDefault();
    this.setState({
      fullname: "",
@@ -32,7 +32,7 @@ class Protest extends React.Component {
     db.settings({
       timestampsInSnapshots: true
     });
-    const userRef = db.collection("users").add({
+    const userRef = db.collection("protest").add({
       fullname: this.state.fullname,
       email: this.state.time,
       review: this.state.location,
@@ -43,8 +43,10 @@ class Protest extends React.Component {
    return(
     <div>
       <Navbar />
-       <form onSubmit={this.addprotest} class="balls">
-       <p class ="balls2">Name</p>
+      <div class="form-style-8">
+    <h5>  <a><img src="https://i.imgur.com/uBWa3ha.png" width="1024" height="100 px" alt="Create your own protest!" /></a></h5>
+       <form onSubmit={this.addProtest} class="balls">
+       <p class ="balls2"></p>
         <input
            type="text"
            name="fullname"
@@ -55,9 +57,9 @@ class Protest extends React.Component {
 	          />
 ​
           <input
-           type="time"
+           type="datetime"
            name="time"
-           placeholder="time"
+           placeholder="Time & Date"
            onChange={this.updateInput}
               />
 <br/>
@@ -76,11 +78,12 @@ class Protest extends React.Component {
            name="description"
            placeholder="Give a brief description of your protest."
               onChange={this.updateInput}
-       value={this.state.descritption}
+       value={this.state.description}
        onChange={this.updateInput}
 ></input>
-         <button type="submit">Submit</button>
+         <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
       </form>
+    </div>
     </div>
   )}
 }
