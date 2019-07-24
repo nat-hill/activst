@@ -10,7 +10,7 @@ class Protest extends React.Component {
      fullname: "",
      time: "",
      location: "",
-     descritption: "",
+     description: "",
      data:[]
     };
 };
@@ -34,9 +34,9 @@ class Protest extends React.Component {
     });
     const userRef = db.collection("protest").add({
       fullname: this.state.fullname,
-      email: this.state.time,
-      review: this.state.location,
-      rating: this.state.description
+      time: this.state.time,
+      location: this.state.location,
+      description: this.state.description
     });
   };
  render() {

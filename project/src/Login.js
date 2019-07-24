@@ -4,6 +4,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import Navbar from './navBar';
 import './App.css'
 import { Redirect } from 'react-router-dom'
+import User from './User';
 
 const uiConfig = {
   signInFlow: 'popup',
@@ -59,7 +60,7 @@ class Login extends Component {
       return(
         <div>
           <p>Hello {this.state.currentUser.displayName}. From the home page, you can view the map, leaderbords, and submit a protest. </p>
-          <button onClick={this.signOut}> Sign Out </button>
+          <User />
         </div>
       );
     }else{
