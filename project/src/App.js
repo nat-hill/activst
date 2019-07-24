@@ -23,13 +23,26 @@ class App extends Component {
             accessToken: 'pk.eyJ1IjoiY3VzdW1tZXIiLCJhIjoiY2p5NXc5cXhwMDFxeTNmbzhwNWpsZTRibSJ9.204smoZZqhejVVBy7oiHfg'
         }).addTo(mymap);
 
+        // create popup contents
+        var customPopup = "<b>Pride Protest Here</b><img src='https://i.imgur.com/YVHmPdA.png' width='150px'/>";
+
+        // specify popup options
+        var customOptions =
+            {
+            'maxWidth': '0',
+            'width': '0',
+            'maxHeight': '200',
+            'Height': '200',
+            'className' : 'popupCustom'
+            }
+
         var circle = L.circle([40.7127, -74.0134], {
                    color: '',
                    fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
                    fillOpacity: 0.5,
                    radius: 500
                }).addTo(mymap);
-               circle.bindPopup("Pride Protest Here!");
+               circle.bindPopup(customPopup,customOptions);
 
   }
 
