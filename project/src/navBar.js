@@ -54,7 +54,7 @@ render(){
       crossorigin=""/>
 
           <h1 class ="header1">
-          <a href="/"><img  class="logo1" src="https://i.imgur.com/GjeVtFG.png" alt="Logo"/></a>
+          <a href="/"><img  class="logo1" src="https://i.imgur.com/19ENtw9.png" alt="Logo"/></a>
           <Signoutbutton />
           </h1>
           <meta name = "description" content = "Protest Maker"/>
@@ -66,7 +66,7 @@ render(){
                 <a class="nav" href="/">Home</a>
               </li>
               <li class = "listb">
-                <a class="nav" href="/history">Protests in the Past></a>
+                <a class="nav" href="/history">Protests in the Past</a>
               </li>
               <li class = "listb">
                 <a class="nav" href="/protest.js">Create a Protest</a>
@@ -92,7 +92,7 @@ render(){
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
        <h1 class ="header1">
-       <a href="/"><img  class="logo1" src="https://i.imgur.com/GjeVtFG.png" alt="Logo"/></a>
+       <a href="/"><img  class="logo1" src="https://i.imgur.com/19ENtw9.png" alt="Logo"/></a>
           <Loginbutton />
        </h1>
        <meta name = "description" content = "Protest Maker"/>

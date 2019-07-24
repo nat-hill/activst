@@ -8,7 +8,7 @@
   pointer-events: none;
 }
 
-#mapid { height: 600px;
+#mapid { height: 1000px;
          width: 100%;
 
 }
@@ -74,7 +74,7 @@
   padding-top: 10px;
 }
 .homePageBackground {
-  background-color: #8AFFFF;
+  background-color: #0d98ba;
 }
 .logo1 {
   position: relative;

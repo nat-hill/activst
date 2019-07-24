@@ -11,7 +11,7 @@ class History extends Component {
     this.state = {};
   }
   componentDidMount(){
-  var historymap = L.map('mapid').setView([40.7831, -73.9712],9);
+  var historymap = L.map('mapid').setView([40.7136, -73.9724],9);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -25,7 +25,7 @@ class History extends Component {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
-          radius: 500
+          radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/New_York_City_draft_riots">The Draft Riots of 1863</a>');
 
@@ -33,7 +33,7 @@ class History extends Component {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
-          radius: 900
+          radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Peace_walk">Peace March, April 15, 1967</a>');
 
@@ -41,7 +41,7 @@ class History extends Component {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
-          radius: 200
+          radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Anti-nuclear_protests_in_the_United_States">Anti-Nuclear March, June 12, 1982</a>');
 
@@ -49,7 +49,7 @@ class History extends Component {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
-          radius: 200
+          radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Protests_against_the_Iraq_War">Anti-Iraq War Protest, 2003</a>');
   }
