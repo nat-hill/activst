@@ -61,7 +61,7 @@
 
 .listb a {
     display: block;
-    color: #DCDCDC; border:1px solid #555555;
+    color: #DCDCDC; border:0px solid #555555;
     text-align: center;
     padding: 10px;
     text-decoration: none;
@@ -148,6 +148,15 @@
   float: right;
   margin: 10px;
   margin-right: 20px;
+  height: 47px;
+  width: 87px;
+}
+
+.balls {
+  color: green;
+}
+.balls2 {
+  color: blue;
 }
 
 @keyframes App-logo-spin {

@@ -7,8 +7,10 @@ class Protest extends React.Component {
   constructor() {
     super();
     this.state = {
-     email: "",
      fullname: "",
+     time: "",
+     location: "",
+     descritption: "",
      data:[]
     };
 };
@@ -22,39 +24,40 @@ class Protest extends React.Component {
    e.preventDefault();
    this.setState({
      fullname: "",
-     email: "",
-     review: "",
-     rating: 5
+     time: "",
+     location: "",
+     description: "",
    });
    const db = firestore.firestore();
     db.settings({
       timestampsInSnapshots: true
     });
-    const userRef = db.collection("Users").add({
+    const userRef = db.collection("users").add({
       fullname: this.state.fullname,
-      email: this.state.email,
-      review: this.state.review,
-      rating: this.state.rating
+      email: this.state.time,
+      review: this.state.location,
+      rating: this.state.description
     });
   };
  render() {
    return(
     <div>
       <Navbar />
-       <form onSubmit={this.addUser}>
-         <input
+       <form onSubmit={this.addprotest} class="balls">
+       <p class ="balls2">Name</p>
+        <input
            type="text"
            name="fullname"
-           placeholder="Full name"
+           placeholder="Full Name"
            onChange={this.updateInput}
            value={this.state.fullname}
            onChange={this.updateInput}
 	          />
 ​
           <input
-           type="email"
-           name="email"
-           placeholder="Email"
+           type="time"
+           name="time"
+           placeholder="time"
            onChange={this.updateInput}
               />
 <br/>
@@ -64,16 +67,16 @@ class Protest extends React.Component {
            name="location"
            placeholder="Location"
            onChange={this.updateInput}
-           value={this.state.review}
+           value={this.state.location}
            onChange={this.updateInput}
             />
 <br/>
            <input
            type="text"
-           name="location"
-           placeholder="Protest Location"
+           name="description"
+           placeholder="Give a brief description of your protest."
               onChange={this.updateInput}
-       value={this.state.rating}
+       value={this.state.descritption}
        onChange={this.updateInput}
 ></input>
          <button type="submit">Submit</button>
