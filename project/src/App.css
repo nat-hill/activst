@@ -19,6 +19,8 @@
 
 .submitButton {
   align: center;
+  text-align: center;
+  align: center;
 }
 .customP {
   font-family: 'Playfair Display', serif;
@@ -296,6 +298,6 @@
 }
 
 .plzalign {
-  text-align: center;
+  text-align: left;
   align: center;
 }

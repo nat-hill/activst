@@ -59,7 +59,6 @@ class Login extends Component {
     if (this.state.signedIn){
       return(
         <div>
-          <p>Hello {this.state.currentUser.displayName}. From the home page, you can view the map, leaderbords, and submit a protest. </p>
           <User />
         </div>
       );

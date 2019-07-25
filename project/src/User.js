@@ -1,5 +1,7 @@
 import React from 'react';
 import firebase from "./Firestore";
+import Navbar from "./navBar";
+import { Form } from 'react-bootstrap';
 
 class User extends React.Component{
   constructor(){
@@ -47,30 +49,54 @@ class User extends React.Component{
   render(){
     return(
       <div>
-      <form onSubmit={this.addUser}>
+      <Navbar />
+      <div class ="plzalign">
+      <div class="form-style-5">
+       <form class ="plzalign" onSubmit={this.addProtest}>
         <input
-          type = "text"
-          name = "fullname"
-          placeholder = "fullname"
-          onChange = {this.updateInput}
-          value = {this.state.fullname}
-        />
-        <input
-          type = "email"
-          name = "email"
-          placeholder = "email"
-          onChange = {this.updateInput}
-          value = {this.state.email}
-        />
-        <input
-          type = "text"
-          name = "bio"
-          placeholder = "description"
-          onChange = {this.updateInput}
-          value = {this.state.bio}
-        />
-        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+           type="text"
+           name="protestname"
+           placeholder="Protest Name"
+           onChange={this.updateInput}
+           value={this.state.protestname}
+           onChange={this.updateInput}
+	          />
+​
+          <input
+           type="datetime"
+           name="time"
+           placeholder="Time & Date"
+           onChange={this.updateInput}
+              />
+<br/>
+           <input
+           type="text"
+           name="location"
+           placeholder="Location"
+           onChange={this.updateInput}
+           value={this.state.location}
+           onChange={this.updateInput}
+            />
+<br/>
+           <input
+           type="text"
+           name="description"
+           placeholder="Give a brief description of your protest."
+              onChange={this.updateInput}
+       value={this.state.description}
+       onChange={this.updateInput}
+></input>
+        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label="Check me out" />
+        <div class = "submitButton">
+         <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
+        </div>
       </form>
+    </div>
+    </div>
       </div>
     )
   }
