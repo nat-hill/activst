@@ -78,7 +78,7 @@ class About extends Component {
                 </div>
               </div>
               <footer class="footer">
-                <p>© Activst 2017</p>
+                <p>© Activst 2019</p>
               </footer>
             </div>
             <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k90mg/a/EheAdgtzNs3hpfag6Ed950n"></script>

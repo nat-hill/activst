@@ -43,10 +43,8 @@ class Protest extends React.Component {
    return(
     <div>
       <Navbar />
-      <div class="form-style-8">
-    <h5>  <a><img src="https://i.imgur.com/uBWa3ha.png" width="1024" height="100 px" alt="Create your own protest!" /></a></h5>
-       <form onSubmit={this.addProtest} class="balls">
-       <p class ="balls2"></p>
+      <div>
+       <form onSubmit={this.addProtest}>
         <input
            type="text"
            name="fullname"

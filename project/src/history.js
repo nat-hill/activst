@@ -29,7 +29,7 @@ class History extends Component {
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/New_York_City_draft_riots"  class="customP">The Draft Riots of 1863</a>');
 
-        var circle = L.circle([40.7829, -73.9654], {
+         circle = L.circle([40.7829, -73.9654], {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
@@ -37,7 +37,7 @@ class History extends Component {
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Peace_walk"  class="customP">Peace March, April 15, 1967</a>');
 
-        var circle = L.circle([40.7900, -73.9650], {
+         circle = L.circle([40.7900, -73.9650], {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
@@ -45,7 +45,7 @@ class History extends Component {
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Anti-nuclear_protests_in_the_United_States" class="customP">Anti-Nuclear March, June 12, 1982</a>');
 
-        var circle = L.circle([40.7490646, -73.9679989], {
+         circle = L.circle([40.7490646, -73.9679989], {
           color: '',
           fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
           fillOpacity: 0.5,
