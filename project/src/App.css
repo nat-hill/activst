@@ -282,3 +282,12 @@ left: 550px;
 top: 210px;
   z-index: 950;
 }
+
+.BACKGROUNDMAP {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+#mapid1 {
+    height: 700px;  
+}

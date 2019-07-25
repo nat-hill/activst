@@ -18,7 +18,7 @@ class Protest extends React.Component {
 };
 
   componentDidMount(){
-  var mymap = L.map('mapid').setView([40.7136, -73.9724],9);
+  var mymap = L.map('mapid1').setView([40.7136, -73.9724],9);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -100,7 +100,7 @@ class Protest extends React.Component {
          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
       </form>
     </div>
-      <div id="mapid" class='BACKGROUNDMAP'></div>
+      <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>
   )}
 }
