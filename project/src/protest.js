@@ -62,8 +62,9 @@ class Protest extends React.Component {
    return(
     <div>
       <Navbar />
+      <div class ="plzalign">
       <div class="form-style-5">
-       <form onSubmit={this.addProtest}>
+       <form class ="plzalign" onSubmit={this.addProtest}>
         <input
            type="text"
            name="protestname"
@@ -97,8 +98,11 @@ class Protest extends React.Component {
        value={this.state.description}
        onChange={this.updateInput}
 ></input>
+        <div class = "submitButton">
          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
+        </div>
       </form>
+    </div>
     </div>
       <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>

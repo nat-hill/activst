@@ -17,6 +17,9 @@
   color:#fff;
   }
 
+.submitButton {
+  align: center;
+}
 .customP {
   font-family: 'Playfair Display', serif;
   font-size: 16px;
@@ -278,9 +281,9 @@
 
 .form-style-5{
   position: absolute;
-left: 550px;
-top: 210px;
   z-index: 950;
+  left: 36%;
+  top: 210px;
 }
 
 .BACKGROUNDMAP {
@@ -289,5 +292,10 @@ top: 210px;
 }
 
 #mapid1 {
-    height: 700px;  
+    height: 700px;
+}
+
+.plzalign {
+  text-align: center;
+  align: center;
 }
