@@ -2,18 +2,35 @@ import React, {Component} from 'react';
 import firestore from "./Firestore";
 import firebase from 'firebase';
 import Navbar from './navBar';
+import './App.css';
+var L = require("leaflet");
 
 class Protest extends React.Component {
   constructor() {
     super();
     this.state = {
-     fullname: "",
+     protestname: "",
      time: "",
      location: "",
      description: "",
      data:[]
     };
 };
+
+  componentDidMount(){
+  var mymap = L.map('mapid').setView([40.7136, -73.9724],9);
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 15,
+            minZoom: 12,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoiY3VzdW1tZXIiLCJhIjoiY2p5NXc5cXhwMDFxeTNmbzhwNWpsZTRibSJ9.204smoZZqhejVVBy7oiHfg'
+        }).addTo(mymap);
+
+            }
+
+
 
     updateInput = e => {
      this.setState({
@@ -23,7 +40,7 @@ class Protest extends React.Component {
   addProtest = e => {
    e.preventDefault();
    this.setState({
-     fullname: "",
+     protestname: "",
      time: "",
      location: "",
      description: "",
@@ -33,24 +50,26 @@ class Protest extends React.Component {
       timestampsInSnapshots: true
     });
     const userRef = db.collection("protest").add({
-      fullname: this.state.fullname,
+      protestname: this.state.protestname,
       time: this.state.time,
       location: this.state.location,
       description: this.state.description
     });
   };
+
+
  render() {
    return(
     <div>
       <Navbar />
-      <div>
+      <div class="form-style-5">
        <form onSubmit={this.addProtest}>
         <input
            type="text"
-           name="fullname"
-           placeholder="Full Name"
+           name="protestname"
+           placeholder="Protest Name"
            onChange={this.updateInput}
-           value={this.state.fullname}
+           value={this.state.protestname}
            onChange={this.updateInput}
 	          />
 ​
@@ -60,7 +79,6 @@ class Protest extends React.Component {
            placeholder="Time & Date"
            onChange={this.updateInput}
               />
-<br/>
 <br/>
            <input
            type="text"
@@ -82,6 +100,7 @@ class Protest extends React.Component {
          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
       </form>
     </div>
+      <div id="mapid" class='BACKGROUNDMAP'></div>
     </div>
   )}
 }
