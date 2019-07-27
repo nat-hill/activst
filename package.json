@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "project",
   "version": "0.1.0",
   "private": true,
@@ -27,5 +28,33 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+=======
+  "name": "activst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/edlei/activst.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/edlei/activst/issues"
+  },
+  "homepage": "https://gitlab.com/edlei/activst#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "firebase": "^6.3.0",
+    "leaflet": "^1.5.1",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.9",
+    "react-firebaseui": "^3.1.2",
+    "react-leaflet": "^2.4.0",
+    "react-router-dom": "^5.0.1"
+>>>>>>> 81a110cfc790c5c4ffa69526e098d481fe4494be
   }
 }
