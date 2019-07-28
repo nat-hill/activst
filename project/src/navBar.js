@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-import AppComponent from './AppComponent';
 import './App.css';
 import Loginbutton from './loginButton';
 import Signoutbutton from './signoutButton';
 import firebase from './Firestore';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-
-
 
 class Navbar extends Component {
   constructor(){

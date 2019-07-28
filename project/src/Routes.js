@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './Login';
 import User from './User';
-import Profile from './myProfile';
 import Leaderboard from './Leaderboard';
 import Protest from './protest';
 import About from './About';

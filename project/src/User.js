@@ -59,7 +59,6 @@ class User extends React.Component{
            placeholder="Protest Name"
            onChange={this.updateInput}
            value={this.state.protestname}
-           onChange={this.updateInput}
 	          />
 ​
           <input
@@ -75,7 +74,6 @@ class User extends React.Component{
            placeholder="Location"
            onChange={this.updateInput}
            value={this.state.location}
-           onChange={this.updateInput}
             />
 <br/>
            <input
@@ -84,7 +82,6 @@ class User extends React.Component{
            placeholder="Give a brief description of your protest."
               onChange={this.updateInput}
        value={this.state.description}
-       onChange={this.updateInput}
 ></input>
         <Form.Check type="checkbox" label="Check me out" />
         <Form.Check type="checkbox" label="Check me out" />

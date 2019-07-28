@@ -3,7 +3,6 @@ import firebase from './Firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import Navbar from './navBar';
 import './App.css'
-import { Redirect } from 'react-router-dom'
 import User from './User';
 
 const uiConfig = {

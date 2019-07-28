@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import firestore from "./Firestore";
-import firebase from 'firebase';
 import Navbar from './navBar';
 import './App.css';
 var L = require("leaflet");
@@ -49,12 +48,6 @@ class Protest extends React.Component {
     db.settings({
       timestampsInSnapshots: true
     });
-    const userRef = db.collection("protest").add({
-      protestname: this.state.protestname,
-      time: this.state.time,
-      location: this.state.location,
-      description: this.state.description
-    });
   };
 
 
@@ -71,7 +64,6 @@ class Protest extends React.Component {
            placeholder="Protest Name"
            onChange={this.updateInput}
            value={this.state.protestname}
-           onChange={this.updateInput}
 	          />
 ​
           <input
@@ -87,7 +79,6 @@ class Protest extends React.Component {
            placeholder="Location"
            onChange={this.updateInput}
            value={this.state.location}
-           onChange={this.updateInput}
             />
 <br/>
            <input
@@ -96,7 +87,6 @@ class Protest extends React.Component {
            placeholder="Give a brief description of your protest."
               onChange={this.updateInput}
        value={this.state.description}
-       onChange={this.updateInput}
 ></input>
         <div class = "submitButton">
          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>

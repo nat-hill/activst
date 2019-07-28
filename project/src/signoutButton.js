@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import { Redirect } from 'react-router-dom'
 import firebase from './Firestore';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-
 
 class Signoutbutton extends Component {
   constructor(){

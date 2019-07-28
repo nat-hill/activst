@@ -36,7 +36,7 @@ class Profile extends Component {
             <div class = "row extra_margin">
               <div class = "col-md-4 col-sm-12 col-xs-12">
                 <div class = "text-center">
-                  <img src = "http://via.placeholder.com/300x250" class = "img-rounded"/>
+                  <img src = "http://via.placeholder.com/300x250" class = "img-rounded" alt = "pic"/>
                   <h2>Gamer Johnson</h2>
                   <p>
                     <a class = "btn btn-primary btn-xs" href="#" role = "button">Facebook</a>
