@@ -12,14 +12,16 @@ class User extends React.Component{
       username: "",
       fullname: "",
       biography: "",
-      globalwarming:"",
-      genderequality: "",
-      racialequality:  "",
-      policebrutality: "",
-      lgbtq: "",
+      globalwarming: false,
+      genderequality: false,
+      racialequality:  false,
+      policebrutality: false,
+      lgbtq: false,
        data:[]
     };
   };
+
+
   componentWillMount(){
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -61,22 +63,20 @@ componentDidMount(){
 
 }
   updateInput = e => {
+    console.log(e.target.name)
+    console.log(e.target.value)
     this.setState({
       [e.target.name]:e.target.value
     });
   }
+
+  //  toggleCheckboxValue = e => {
+  //    let value = !this.state[e.target.label]
+  //     this.setState({e.target.label: value});
+  //  }
+
+
   addUser = e => {
-    e.preventDefault();
-    this.setState({
-      username: "",
-      fullname: "",
-      biography: "",
-      globalwarming:"",
-      genderequality: "",
-      racialequality:  "",
-      policebrutality: "",
-      lgbtq: ""
-    });
     const db = firestore.firestore();
      db.settings({
        timestampsInSnapshots: true
@@ -90,8 +90,19 @@ componentDidMount(){
        racialequality:  this.state.racialequality,
        policebrutality: this.state.policebrutality,
        lgbtq: this.state.lgbtq
-     });
-  };
+     }).then(
+       this.setState({
+         username: "",
+         fullname: "",
+         biography: "",
+         globalwarming: false,
+         genderequality: false,
+         racialequality:  false,
+         policebrutality: false,
+         lgbtq: false
+       })
+     );
+  }
   render(){
     return(
       <div>
@@ -127,48 +138,50 @@ componentDidMount(){
               onChange={this.updateInput}
        value={this.state.biography}
        onChange={this.updateInput}
+
+
 ></input>  <b> What kinds of protests would you like to see? </b>
         <Form.Check
         type="checkbox"
         label="Global Warming"
-        onChange={this.updateInput}
         value={this.state.globalwarming}
-        onChange={this.updateInput}
+        onChange={this.state.globalwarming = !this.state.globalwarming}
+        value={this.state.globalwarming}
         />
         <Form.Check
         type="checkbox"
         label="Gender Equality"
-        onChange={this.updateInput}
         value={this.state.genderequality}
-        onChange={this.updateInput}
+        onChange={this.state.genderequality = !this.state.genderequality}
+        value={this.state.genderequality}
         />
         <Form.Check
         type="checkbox"
         label="Racial Equality"
-        onChange={this.updateInput}
         value={this.state.racialequality}
-        onChange={this.updateInput}
+        onChange={this.state.racialequality = !this.state.racialequality}
+        value={this.state.racialequality}
         />
         <Form.Check
         type="checkbox"
         label="Police Brutality"
-        onChange={this.updateInput}
         value={this.state.policebrutality}
-        onChange={this.updateInput}
+        onChange={this.state.policebrutality = !this.state.policebrutality}
+        value={this.state.policebrutality}
         />
         <Form.Check
         type="checkbox"
         label="LGBTQ+"
-        onChange={this.updateInput}
         value={this.state.lgbtq}
-        onChange={this.updateInput}
+        onChange={this.state.lgbtq = !this.state.lgbtq}
+        value={this.state.lgbtq}
         />
         <Form.Check
         type="checkbox"
         label="Other"
-        onChange={this.updateInput}
-        value={this.state.pther}
-        onChange={this.updateInput}
+        value={this.state.other}
+        onChange={this.state.other = !this.state.other}
+      value={this.state.other}
         />
         <div class = "submitButton">
          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
