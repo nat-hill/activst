@@ -176,14 +176,14 @@
 
 
 .form-style-5{
-	max-width: 500px;
+	max-width: 900px;
 	padding: 10px 20px;
 	background: #f4f7f8;
 	margin: 10px auto;
 	padding: 20px;
 	background: #f4f7f8;
 	border-radius: 8px;
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: 'Lato', sans-serif;
 }
 .form-style-5 fieldset{
 	border: none;
@@ -206,7 +206,7 @@
 .form-style-5 input[type="url"],
 .form-style-5 textarea,
 .form-style-5 select {
-	font-family: Georgia, "Times New Roman", Times, serif;
+	font-family: 'Lato', sans-serif;
 	background: rgba(255,255,255,.1);
 	border: none;
 	border-radius: 4px;
@@ -289,8 +289,8 @@
 }
 
 .BACKGROUNDMAP {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  -webkit-filter: invert(100%) grayscale(100%);
+   filter: invert(100%) grayscale(100%);
 }
 
 #mapid1 {
@@ -300,4 +300,10 @@
 .plzalign {
   text-align: left;
   align: center;
+}
+
+
+.BACKGROUNDMAP2 {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }

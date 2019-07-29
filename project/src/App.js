@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import AppComponent from './AppComponent';
 import Navbar from './navBar';
 import './App.css';
 var L = require("leaflet");

@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import AppComponent from './AppComponent';
 import './App.css';
 import Loginbutton from './loginButton';
 import Signoutbutton from './signoutButton';
 import firebase from './Firestore';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+
 
 class Navbar extends Component {
   constructor(){
@@ -103,10 +107,10 @@ render(){
              <a class="nav" href="/history">Protests in the Past</a>
            </li>
            <li class = "listb">
-             <a class="nav" href="/protest.js">Create a Protest</a>
+             <a class="nav" href="/login">Create a Protest</a>
            </li>
            <li class ="listb">
-             <a class="nav" href="myProfile">My Profile</a>
+             <a class="nav" href="login">My Profile</a>
            </li>
            <li class ="listb">
              <a class="nav" href="leaderboard">Leaderboard</a>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Leaderboard.css';
+import Routes from './Routes';
 import Navbar from './navBar';
 
 class Leaderboard extends Component{
@@ -9,6 +10,7 @@ class Leaderboard extends Component{
   }
   ranking(){
     var medals//this is pseudocode but we need to add database stuff
+    var users //this is pseudocode but we need to add database stuff
         for(var i = 0;i<medals.length;i++)
     {
 
