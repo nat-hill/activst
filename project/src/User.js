@@ -17,7 +17,8 @@ class User extends React.Component{
       racialequality:  false,
       policebrutality: false,
       lgbtq: false,
-       data:[]
+      other: false,
+      data:[]
     };
   };
 
@@ -43,7 +44,8 @@ class User extends React.Component{
           genderequality: this.state.genderequality,
           racialequality:  this.state.racialequality,
           policebrutality: this.state.policebrutality,
-          lgbtq: this.state.lgbtq
+          lgbtq: this.state.lgbtq,
+          other: this.state.other
 
       });
     }
@@ -89,7 +91,8 @@ componentDidMount(){
        genderequality: this.state.genderequality,
        racialequality:  this.state.racialequality,
        policebrutality: this.state.policebrutality,
-       lgbtq: this.state.lgbtq
+       lgbtq: this.state.lgbtq,
+       other: this.state.other
      }).then(
        this.setState({
          username: "",
@@ -99,7 +102,8 @@ componentDidMount(){
          genderequality: false,
          racialequality:  false,
          policebrutality: false,
-         lgbtq: false
+         lgbtq: false,
+         other: false
        })
      );
   }
@@ -135,9 +139,9 @@ componentDidMount(){
            type="text"
            name="biography"
            placeholder="Give a brief description of yourself"
-              onChange={this.updateInput}
-       value={this.state.biography}
-       onChange={this.updateInput}
+           onChange={this.updateInput}
+           value={this.state.biography}
+           onChange={this.updateInput}
 
 
 ></input>  <b> What kinds of protests would you like to see? </b>
@@ -145,42 +149,42 @@ componentDidMount(){
         type="checkbox"
         label="Global Warming"
         value={this.state.globalwarming}
-        onChange={this.state.globalwarming = !this.state.globalwarming}
+        onChange={() => {this.state.globalwarming = !this.state.globalwarming}}
         value={this.state.globalwarming}
         />
         <Form.Check
         type="checkbox"
         label="Gender Equality"
         value={this.state.genderequality}
-        onChange={this.state.genderequality = !this.state.genderequality}
+        onChange={() => {this.state.genderequality = !this.state.genderequality}}
         value={this.state.genderequality}
         />
         <Form.Check
         type="checkbox"
         label="Racial Equality"
         value={this.state.racialequality}
-        onChange={this.state.racialequality = !this.state.racialequality}
+        onChange={() => {this.state.racialequality = !this.state.racialequality}}
         value={this.state.racialequality}
         />
         <Form.Check
         type="checkbox"
         label="Police Brutality"
         value={this.state.policebrutality}
-        onChange={this.state.policebrutality = !this.state.policebrutality}
+        onChange={() => {this.state.policebrutality = !this.state.policebrutality}}
         value={this.state.policebrutality}
         />
         <Form.Check
         type="checkbox"
         label="LGBTQ+"
         value={this.state.lgbtq}
-        onChange={this.state.lgbtq = !this.state.lgbtq}
-        value={this.state.lgbtq}
+        onChange={() => {this.state.lgbtq = !this.state.lgbtq}}
+        value={this.lgbtq}
         />
         <Form.Check
         type="checkbox"
         label="Other"
         value={this.state.other}
-        onChange={this.state.other = !this.state.other}
+        onChange={() => {this.state.other = !this.state.other}}
       value={this.state.other}
         />
         <div class = "submitButton">

@@ -8,8 +8,11 @@ import Protest from './protest';
 import About from './About';
 import History from './history';
 import BetterProfile from './BetterProfile';
+import firebase from './Firestore';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import React from 'react';
 //import React, { Component } from 'React';
+
 
 const Child = ({ match }) => (
   <div>
@@ -38,5 +41,6 @@ const Routes = () => (
     </div>
   </Router>
 );
+
 
 export default Routes;
