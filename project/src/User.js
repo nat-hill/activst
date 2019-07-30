@@ -77,36 +77,47 @@ componentDidMount(){
   //     this.setState({e.target.label: value});
   //  }
 
-
   addUser = e => {
+    e.preventDefault();
     const db = firestore.firestore();
+
      db.settings({
        timestampsInSnapshots: true
      });
-     const userRef = db.collection("users").add({
-       username: this.state.username,
-       fullname: this.state.fullname,
-       biography: this.state.biography,
-       globalwarming: this.state.globalwarming,
-       genderequality: this.state.genderequality,
-       racialequality:  this.state.racialequality,
-       policebrutality: this.state.policebrutality,
-       lgbtq: this.state.lgbtq,
-       other: this.state.other
-     }).then(
-       this.setState({
-         username: "",
-         fullname: "",
-         biography: "",
-         globalwarming: false,
-         genderequality: false,
-         racialequality:  false,
-         policebrutality: false,
-         lgbtq: false,
-         other: false
-       })
-     );
+
+     let userRef = db.collection('users');
+     let query = userRef.where('username', '==', this.state.username).get()
+     .then(snapshot => {
+     if (snapshot.empty) {
+       const userRef = db.collection("users").add({
+         username: this.state.username,
+         fullname: this.state.fullname,
+         biography: this.state.biography,
+         globalwarming: this.state.globalwarming,
+         genderequality: this.state.genderequality,
+         racialequality:  this.state.racialequality,
+         policebrutality: this.state.policebrutality,
+         lgbtq: this.state.lgbtq,
+         other: this.state.other
+       }).then(
+         this.setState({
+           username: "",
+           fullname: "",
+           biography: "",
+           globalwarming: false,
+           genderequality: false,
+           racialequality:  false,
+           policebrutality: false,
+           lgbtq: false,
+           other: false
+         })
+       );
+       }else{
+         alert("That username is taken");
+        }
+      });
   }
+
   render(){
     return(
       <div>
