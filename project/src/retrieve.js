@@ -1,42 +1,80 @@
-<<<<<<< HEAD
 import firebase from './Firestore';
-import react from 'React';
+import React, {Component} from 'react';
+import Login from './Login';
 
-getDocuments = db =>{
-  let protestRef = db.collection('protest');
-  let getDoc = protestRef.get()
-    .then(doc => {
-      if (!doc.exists) {
-        console.log('No such document');
-      } else {
-        console.log('Document data:', doc.data());
+class Fullname extends Component{
+  constructor(){
+    super();
+    this.state = {signedIn: false, currentUser: null, fullname:''};
+  }
+  componentWillMount(){
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          signedIn: true,
+          currentUser: user
+        });
+        const db = firebase.firestore();
+        const userRef = db.collection("users");
+        console.log(user.uid);
+        let observer = userRef.doc(user.uid).onSnapshot(docSnapshot => {
+          console.log("Received doc snapshot: ${docSnapshot}");
+          console.log(docSnapshot.data());
+          this.setState({fullname:docSnapshot.data().fullname});
+        }, err => {
+          console.log('Encountered error: ${err}');
+        });
       }
     })
-    .catch(err => {
-      console.log('Error getting document', err);
-    })
-    return getDoc
-}
+  }
 
-getDocuments(protest)
-=======
-import React from 'react';
-import firebase from './Firestore';
-import Protest from './protest';
-
-getDocument = userRef => {
-  let getDoc = userRef.get()
-  .then(doc => {
-    if (!doc.exists){
-      console.log('No document');
+  render(){
+    if (this.state.signedIn){
+      console.log(this.state.fullname);
+      return(
+        <div>
+        {this.state.fullname}
+        </div>
+      );
     } else {
-      console.log('Document data:', doc.data());
+      return(
+        <div>
+        <Login/>
+        </div>
+      )
     }
-  })
-  .catch(err => {
-    console.log('Error getting document', err);
-  });
+    }
+  }
 
-return getDoc;
-}
->>>>>>> 1d944a15cf209fcfcc5d9c803a07b860e81d02ce
+export default Fullname
+// getFullname = db => {
+//   let doc = db.collection('users').doc(fullname);
+//
+//   let observer = doc.onSnapshot(docSnapshot => {
+//     return docSnapshot
+//     console.log('Received doc snapshot: ${docSnapshot}');
+//     observer();
+//   }, err => {
+//     console.log('Encountered error: ${err}')
+//   });
+// }
+//
+// getFullname(db)
+
+// getDocuments = db =>{
+//   let userRef = db.collection('users').doc(fullname);
+//   let getDoc = userRef.get()
+//     .then(doc => {
+//       if (!doc.exists) {
+//         console.log('No such document');
+//       } else {
+//         console.log('Document data:', doc.data());
+//       }
+//     })
+//     .catch(err => {
+//       console.log('Error getting document', err);
+//     })
+//     return getDoc
+// }
+//
+// console.log(getDocuments(protest))
