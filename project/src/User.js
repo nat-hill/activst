@@ -3,7 +3,9 @@ import firebase from "./Firestore";
 import firestore from "./Firestore";
 import Navbar from "./navBar";
 import { Form } from 'react-bootstrap';
+import App from './App'
 var L = require("leaflet");
+
 
 class User extends React.Component{
   constructor(){
@@ -111,6 +113,7 @@ componentDidMount(){
            lgbtq: false,
            other: false
          })
+
        );
        }else{
          alert("That username is taken");
