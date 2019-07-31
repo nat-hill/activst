@@ -1,8 +1,24 @@
 import React, {Component} from 'react';
 import Navbar from './navBar';
 import './App.css';
+import Geocode from 'react-geocode';
+Geocode.setApiKey("AIzaSyBbxC4kwW6n0n-HDgizgH6hU8b4_DcpSM0");
 var L = require("leaflet");
 var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange', 'pink', "#4c69fa", "#fa4ce6","#52fa4c","#ef9906");
+
+function convert(address){
+Geocode.fromAddress(address).then(
+  response => {
+    const { lat, lng } = response.results[0].geometry.location;
+    return { lat, lng }
+  },
+  error => {
+    console.error(error);
+  }
+
+);
+
+}
 
 class App extends Component {
   constructor(){
@@ -42,6 +58,15 @@ class App extends Component {
                    radius: 500
                }).addTo(mymap);
                circle.bindPopup(customPopup,customOptions);
+        var a = convert("41 Cooper Square");
+
+        var circle = L.circle([a], {
+                  color: '',
+                  fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+                  fillOpacity: 0.5,
+                  radius: 500
+              }).addTo(mymap);
+              circle.bindPopup(customPopup,customOptions);
 
   }
 
