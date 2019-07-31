@@ -48,8 +48,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #555555;
-
+    background-color: #0d98ba;
 }
 
 .sticky {
@@ -93,6 +92,9 @@
   padding-top: 10px;
 }
 .homePageBackground {
+  background-color: #0d98ba;
+}
+.homePageBackgroundLowerHalf{
   background-color: #0d98ba;
 }
 .logo1 {
@@ -141,7 +143,7 @@
 
 .listb a:hover:not(.active) {
     background-color: #CDCDCD;
-    color: #555555;
+    color: #0d98ba;
     text-decoration: none;
 }
 
