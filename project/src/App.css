@@ -91,6 +91,11 @@
   color: #DCDCDC;
   padding-top: 10px;
 }
+
+.protestHeader {
+  text-align: center;
+}
+
 .homePageBackground {
   background-color: #0d98ba;
 }
