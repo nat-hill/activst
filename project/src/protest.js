@@ -132,8 +132,12 @@ componentDidMount(){
       </form>
     </div>
     </div>
+    <script>
+    src = "https://reverse.geocoder.api.here.com/6.2/reversegeocode.json"
+    </script>
       <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>
+
   );
 }
 }
