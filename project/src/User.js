@@ -4,6 +4,8 @@ import firestore from "./Firestore";
 import Navbar from "./navBar";
 import { Form } from 'react-bootstrap';
 import App from './App'
+import Welcome from './Welcome';
+import { Redirect } from 'react-router-dom';
 var L = require("leaflet");
 
 
@@ -20,6 +22,7 @@ class User extends React.Component{
       policebrutality: false,
       lgbtq: false,
       other: false,
+      redirectToWelcome: false,
       data:[]
     };
   };
@@ -38,18 +41,6 @@ class User extends React.Component{
         });
         const userRef = db.collection("users");
 
-        userRef.doc(user.uid).set({
-          username: this.state.username,
-          fullname: this.state.fullname,
-          biography: this.state.biography,
-          globalwarming: this.state.globalwarming,
-          genderequality: this.state.genderequality,
-          racialequality:  this.state.racialequality,
-          policebrutality: this.state.policebrutality,
-          lgbtq: this.state.lgbtq,
-          other: this.state.other
-
-      });
     }
   });
 }
@@ -81,47 +72,59 @@ componentDidMount(){
 
   addUser = e => {
     e.preventDefault();
-    const db = firestore.firestore();
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          signedIn: true,
+          currentUser: user
+        });
+        const db = firestore.firestore();
+        db.settings({
+           timestampsInSnapshots: true
+        });
+        const userRef = db.collection('users');
 
-     db.settings({
-       timestampsInSnapshots: true
-     });
+        let query = userRef.where('username', '==', this.state.username).get()
+        .then(snapshot => {
+        if (snapshot.empty) {
+          userRef.doc(user.uid).set({
+            username: this.state.username,
+            fullname: this.state.fullname,
+            biography: this.state.biography,
+            globalwarming: this.state.globalwarming,
+            genderequality: this.state.genderequality,
+            racialequality:  this.state.racialequality,
+            policebrutality: this.state.policebrutality,
+            lgbtq: this.state.lgbtq,
+            other: this.state.other
+          }).then(
+            this.setState({
+              username: "",
+              fullname: "",
+              biography: "",
+              globalwarming: false,
+              genderequality: false,
+              racialequality:  false,
+              policebrutality: false,
+              lgbtq: false,
+              other: false,
+              redirectToWelcome: true
+            })
 
-     let userRef = db.collection('users');
-     let query = userRef.where('username', '==', this.state.username).get()
-     .then(snapshot => {
-     if (snapshot.empty) {
-       const userRef = db.collection("users").add({
-         username: this.state.username,
-         fullname: this.state.fullname,
-         biography: this.state.biography,
-         globalwarming: this.state.globalwarming,
-         genderequality: this.state.genderequality,
-         racialequality:  this.state.racialequality,
-         policebrutality: this.state.policebrutality,
-         lgbtq: this.state.lgbtq,
-         other: this.state.other
-       }).then(
-         this.setState({
-           username: "",
-           fullname: "",
-           biography: "",
-           globalwarming: false,
-           genderequality: false,
-           racialequality:  false,
-           policebrutality: false,
-           lgbtq: false,
-           other: false
-         })
-
-       );
-       }else{
-         alert("That username is taken");
-        }
-      });
+          );
+          }else{
+            alert("That username is taken");
+           }
+         });
+      }
+    })
   }
 
   render(){
+    const redirectToWelcome = this.state.redirectToWelcome;
+    if (redirectToWelcome === true){
+      return <Redirect to='/Welcome'/>
+    }
     return(
       <div>
       <Navbar />

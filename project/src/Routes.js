@@ -11,6 +11,7 @@ import BetterProfile from './BetterProfile';
 import firebase from './Firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import React from 'react';
+import Welcome from './Welcome';
 //import React, { Component } from 'React';
 
 /*
@@ -40,6 +41,7 @@ const Routes = () => (
       <Route exact path= {"/Leaderboard"} component={() => <Leaderboard />}/>
       <Route exact path= {"/protest.js"} component={() => <Protest />}/>
       <Route exact path= {"/history"} component={() => <History />}/>
+      <Route exact path= {"/welcome"} component={() => <Welcome />}/>
     </div>
   </Router>
 );

@@ -3,7 +3,8 @@ import './App.css';
 import Navbar from './navBar';
 import { Container, Row, Col, Image, Jumbotron, Button } from 'react-bootstrap';
 import firebase from './Firestore';
-import Fullname from './retrieve';
+import Fullname from './retrieveFullname';
+import Biography from './retrieveBiography';
 
 class BetterProfile extends Component{
   constructor() {
@@ -92,10 +93,10 @@ addURL = e => {
         </Row>
 
         <p>
-          Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+          <Biography />
         </p>
         <p>
-          <Button>Don't click me</Button>
+          <Button href='/User'>Edit Profile</Button>
         </p>
 
         <p>

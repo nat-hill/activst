@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import firestore from "./Firestore";
 import firebase from 'firebase';
 import Navbar from './navBar';
+import App from './App';
 import './App.css';
 import Login from './Login';
 import Geocode from 'react-geocode';
@@ -20,6 +21,7 @@ Geocode.fromAddress(address).then(
 );
 
 }
+
 
 class Protest extends React.Component {
   constructor() {
@@ -136,10 +138,11 @@ componentDidMount(){
            type="text"
            name="description"
            placeholder="Give a brief description of your protest."
-              onChange={this.updateInput}
-       value={this.state.description}
-       onChange={this.updateInput}
+           onChange={this.updateInput}
+           value={this.state.description}
+           onChange={this.updateInput}
 ></input>
+<<<<<<< HEAD
         <div class = "submitButton">
          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
         </div>
@@ -149,6 +152,14 @@ componentDidMount(){
     <script>
     src = "https://reverse.geocoder.api.here.com/6.2/reversegeocode.json"
     </script>
+=======
+          <div class = "submitButton">
+          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
+          </div>
+        </form>
+      </div>
+      </div>
+>>>>>>> bbc3d41c23048649a0bbb32e49801dd35671a39b
       <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>
 
