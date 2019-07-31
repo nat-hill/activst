@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import firestore from "./Firestore";
 import firebase from 'firebase';
 import Navbar from './navBar';
+import App from './App';
 import './App.css';
 import Login from './Login';
 var L = require("leaflet");
+
 
 
 class Protest extends React.Component {
@@ -122,16 +124,16 @@ componentDidMount(){
            type="text"
            name="description"
            placeholder="Give a brief description of your protest."
-              onChange={this.updateInput}
-       value={this.state.description}
-       onChange={this.updateInput}
+           onChange={this.updateInput}
+           value={this.state.description}
+           onChange={this.updateInput}
 ></input>
-        <div class = "submitButton">
-         <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
-        </div>
-      </form>
-    </div>
-    </div>
+          <div class = "submitButton">
+          <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
+          </div>
+        </form>
+      </div>
+      </div>
       <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>
   );

@@ -46,7 +46,7 @@ class Fullname extends Component{
     }
   }
 
-export default Fullname
+export default Fullname;
 // getFullname = db => {
 //   let doc = db.collection('users').doc(fullname);
 //
