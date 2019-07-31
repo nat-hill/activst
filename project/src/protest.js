@@ -4,8 +4,22 @@ import firebase from 'firebase';
 import Navbar from './navBar';
 import './App.css';
 import Login from './Login';
+import Geocode from 'react-geocode';
 var L = require("leaflet");
+Geocode.setApiKey("AIzaSyCxo325N-PHdHAUPyZdjynOeYlDTaC8kKc ");
 
+function convert(address){
+Geocode.fromAddress(address).then(
+  response => {
+    const { lat, lng } = response.results[0].geometry.location;
+    return { lat, lng } // console.log(lat, lng);
+  },
+  error => {
+    console.error(error);
+  }
+);
+
+}
 
 class Protest extends React.Component {
   constructor() {
