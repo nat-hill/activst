@@ -5,8 +5,9 @@ import Navbar from './navBar';
 import App from './App';
 import './App.css';
 import Login from './Login';
-var L = require("leaflet");
+import { Button, Dropdown, DropdownButton  } from 'react-bootstrap'
 
+var L = require("leaflet");
 
 
 class Protest extends React.Component {
@@ -17,6 +18,7 @@ class Protest extends React.Component {
      time: "",
      location: "",
      description: "",
+     keyTerm: "",
      data:[]
     };
 };
@@ -64,13 +66,6 @@ componentDidMount(){
      });
 }
   addProtest = e => {
-   e.preventDefault();
-   this.setState({
-     protestname: "",
-     time: "",
-     location: "",
-     description: "",
-   });
    const db = firestore.firestore();
     db.settings({
       timestampsInSnapshots: true
@@ -79,7 +74,16 @@ componentDidMount(){
       protestname: this.state.protestname,
       time: this.state.time,
       location: this.state.location,
-      description: this.state.description
+      description: this.state.description,
+      keyTerm: this.state.keyTerm
+    });
+    e.preventDefault();
+    this.setState({
+      protestname: "",
+      time: "",
+      location: "",
+      description: "",
+      keyTerm: ""
     });
   };
 
@@ -128,6 +132,22 @@ componentDidMount(){
            value={this.state.description}
            onChange={this.updateInput}
 ></input>
+
+
+
+<label>
+          Pick the option that best describes your protest:
+          <select name="keyTerm" onChange={this.updateInput.bind(this)}>
+            <option value="globalwarming" name="keyTerm" >Global Warming</option>
+            <option value="genderequality" name="keyTerm">Gender Equality</option>
+            <option value="racialequality" name="keyTerm">Racial Equality</option>
+            <option value="policebrutality" name="keyTerm">Police Brutality</option>
+            <option value="lgbtq" name="keyTerm">LGBTQ+</option>
+            <option value="other" name="keyTerm">Other</option>
+          </select>
+        </label>
+
+
           <div class = "submitButton">
           <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
           </div>
