@@ -13,6 +13,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import React from 'react';
 import Welcome from './Welcome';
 import CustomProtestPage from './customProtestPage';
+import ProtestList from './ProtestList';
 //import React, { Component } from 'React';
 
 /*
@@ -44,6 +45,7 @@ const Routes = () => (
       <Route exact path= {"/history"} component={() => <History />}/>
       <Route exact path= {"/welcome"} component={() => <Welcome />}/>
       <Route exact path= {"/customProtestPage"} component={() => <CustomProtestPage />}/>
+      <Route exact path= {"/ProtestPage"} component={() => <ProtestList />}/>
     </div>
   </Router>
 );

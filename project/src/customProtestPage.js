@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import Navbar from './navBar';
 import firebase from './Firestore';
-import ProtestName from './retrieve_protestname';
 import { Container, Jumbotron } from 'react-bootstrap';
 
 class CustomProtestPage extends Component{
