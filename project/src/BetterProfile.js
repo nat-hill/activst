@@ -100,24 +100,8 @@ addURL = e => {
         </p>
 
         <p>
-        <form>
-        <input type="text"
-          name = "url"
-          placeholder = "Image URL"
-          onChange={this.updateInput}
-          value = {this.state.url}
-          onchange="readURL(this);" />
-        <img id="blah" src="http://placehold.it/180" alt="your image" />
-        </form>
-        <form onSubmit={this.addURL}>
-        <button type="submit">Submit</button>
-
-        </form>
-        </p>
-
-        <p>
         <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share on Facebook</a></div>
-          ツ
+    
         </p>
       </Jumbotron>
       </Container>
