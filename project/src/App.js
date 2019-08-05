@@ -37,13 +37,14 @@ class App extends Component {
        db.collection("protest").get().then((snapshot) => {
          snapshot.forEach((doc) => (
            protestLocations.push({
-             location: doc.data().location
+             location: doc.data().location,
+             protestname: doc.data().protestname
            })
          ))
          console.log(protestLocations)
          for (var i = 0; i<protestLocations.length; i++){
            console.log(protestLocations[i].location)
-           Geocode.fromAddress(protestLocations[i]).then(
+           Geocode.fromAddress(protestLocations[i].location).then(
                response => {
                  let { lat, lng } = response.results[0].geometry.location;
                 console.log('this')
@@ -63,7 +64,7 @@ class App extends Component {
                  fillOpactity: 0.5,
                  radius: 500
                }).addTo(mymap);
-               circle.bindPopup(protestLocations[i].location);
+               circle.bindPopup(protestLocations[i].fullname);
                });
          }
        })
