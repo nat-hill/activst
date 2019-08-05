@@ -23,15 +23,7 @@ class App extends Component {
            id: 'mapbox.streets',
            accessToken: 'pk.eyJ1IjoiY3VzdW1tZXIiLCJhIjoiY2p5NXc5cXhwMDFxeTNmbzhwNWpsZTRibSJ9.204smoZZqhejVVBy7oiHfg'
        }).addTo(mymap);
-       // create popup contents
-       var customPopup = "<div class='customP'> Pride Protest Here</b> ";
-       // specify popup options
-       var customOptions =
-           {
-           'maxWidth': '200',
-           'maxHeight': '200',
-           'className' : 'popupCustom'
-           }
+
        let protestLocations = [];
        const db = firebase.firestore();
        db.collection("protest").get().then((snapshot) => {
@@ -41,38 +33,52 @@ class App extends Component {
              protestname: doc.data().protestname
            })
          ))
+         console.log(JSON.stringify(protestLocations));
          for (var i = 0; i<protestLocations.length; i++){
-           Geocode.fromAddress(protestLocations[i].location).then(
-               response => {
-                 let { lat, lng } = response.results[0].geometry.location;
-                 this.setState({
-                   lat: lat,
-                   lng: lng
+           var obj = protestLocations[i];
+           for (var key in obj){
+             var value = obj[key];
+             console.log("this")
+             console.log('obj:',obj)
+             console.log('key:',key)
+             console.log('value:',value)
+             Geocode.fromAddress(value).then(
+                 response => {
+                   let { lat, lng } = response.results[0].geometry.location;
+                   this.setState({
+                     lat: lat,
+                     lng: lng
+                   });
+                 var circle = L.circle([lat,lng], {
+                   color: '',
+                   fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+                   fillOpactity: 0.5,
+                   radius: 500
+                 }).addTo(mymap);
+                 // console.log(JSON.stringify(protestLocations));
+                 // console.log((protestLocations)[i])
+                 var customPopup = `<div class='customP'>${value}</div>`;
+                 var customOptions =
+                     {
+                     'maxWidth': '200',
+                     'maxHeight': '200',
+                     'className' : 'popupCustom'
+                     }
+                 circle.bindPopup(customPopup,customOptions);
                  });
-               var circle = L.circle([lat,lng], {
-                 color: '',
-                 fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
-                 fillOpactity: 0.5,
-                 radius: 500
-               }).addTo(mymap);
-               console.log("this")
-               console.log(protestLocations)
-               console.log(protestLocations[i])
-               circle.bindPopup(protestLocations[i].protestname)
-               });
+           }
+
          }
        })
 
 
-
-
-         var circle = L.circle([40.7127, -74.0134], {
-                    color: '',
-                    fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
-                    fillOpacity: 0.5,
-                    radius: 500
-                }).addTo(mymap);
-                circle.bindPopup(customPopup,customOptions);
+         // var circle = L.circle([40.7127, -74.0134], {
+         //            color: '',
+         //            fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+         //            fillOpacity: 0.5,
+         //            radius: 500
+         //        }).addTo(mymap);
+         //        circle.bindPopup(customPopup,customOptions);
   }
 
  render(){

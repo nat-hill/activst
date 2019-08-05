@@ -61,7 +61,7 @@ class About extends Component {
                 <div class="col-lg-3">
                   <h2>Edward Lei</h2>
                   <p>
-                    My name is Edward Lei and I am a rising junior. I am currently attending High Technology High School in Lincroft, New Jersey. 
+                    My name is Edward Lei and I am a rising junior. I am currently attending High Technology High School in Lincroft, New Jersey.
                   </p>
                   <p>
                     <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
@@ -70,7 +70,7 @@ class About extends Component {
                 <div class="col-lg-3">
                   <h2>Terry Qu</h2>
                   <p>
-                    Cras justo odio, dapibus ac facilis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.
+                    Hope you enjoy our site.
                   </p>
                   <p>
                     <a class="btn btn-lg btn-primary" role="button" href="#">View details</a>
