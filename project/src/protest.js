@@ -5,22 +5,9 @@ import Navbar from './navBar';
 import App from './App';
 import './App.css';
 import Login from './Login';
-import Geocode from 'react-geocode';
+import { Button, Dropdown, DropdownButton  } from 'react-bootstrap'
+
 var L = require("leaflet");
-Geocode.setApiKey("AIzaSyCxo325N-PHdHAUPyZdjynOeYlDTaC8kKc ");
-
-function convert(address){
-Geocode.fromAddress(address).then(
-  response => {
-    const { lat, lng } = response.results[0].geometry.location;
-    return { lat, lng } // console.log(lat, lng);
-  },
-  error => {
-    console.error(error);
-  }
-);
-
-}
 
 
 class Protest extends React.Component {
@@ -31,6 +18,7 @@ class Protest extends React.Component {
      time: "",
      location: "",
      description: "",
+     keyTerm: "",
      data:[]
     };
 };
@@ -78,13 +66,6 @@ componentDidMount(){
      });
 }
   addProtest = e => {
-   e.preventDefault();
-   this.setState({
-     protestname: "",
-     time: "",
-     location: "",
-     description: "",
-   });
    const db = firestore.firestore();
     db.settings({
       timestampsInSnapshots: true
@@ -93,7 +74,16 @@ componentDidMount(){
       protestname: this.state.protestname,
       time: this.state.time,
       location: this.state.location,
-      description: this.state.description
+      description: this.state.description,
+      keyTerm: this.state.keyTerm
+    });
+    e.preventDefault();
+    this.setState({
+      protestname: "",
+      time: "",
+      location: "",
+      description: "",
+      keyTerm: ""
     });
   };
 
@@ -142,27 +132,30 @@ componentDidMount(){
            value={this.state.description}
            onChange={this.updateInput}
 ></input>
-<<<<<<< HEAD
-        <div class = "submitButton">
-         <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
-        </div>
-      </form>
-    </div>
-    </div>
-    <script>
-    src = "https://reverse.geocoder.api.here.com/6.2/reversegeocode.json"
-    </script>
-=======
+
+
+
+<label>
+          Pick the option that best describes your protest:
+          <select name="keyTerm" onChange={this.updateInput.bind(this)}>
+            <option value="globalwarming" name="keyTerm" >Global Warming</option>
+            <option value="genderequality" name="keyTerm">Gender Equality</option>
+            <option value="racialequality" name="keyTerm">Racial Equality</option>
+            <option value="policebrutality" name="keyTerm">Police Brutality</option>
+            <option value="lgbtq" name="keyTerm">LGBTQ+</option>
+            <option value="other" name="keyTerm">Other</option>
+          </select>
+        </label>
+
+
           <div class = "submitButton">
           <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
           </div>
         </form>
       </div>
       </div>
->>>>>>> bbc3d41c23048649a0bbb32e49801dd35671a39b
       <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>
-
   );
 }
 }

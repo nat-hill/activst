@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "geocoder": "^0.2.3",
+    "geocoding": "^1.0.5",
+    "google-geocoder": "^0.2.1",
+    "node-geocoder": "^3.23.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-geocode": "^0.1.2",
     "react-scripts": "3.0.1"
   },
   "scripts": {
