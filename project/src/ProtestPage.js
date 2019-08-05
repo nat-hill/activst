@@ -1,7 +1,21 @@
-// get protest uid from clicking on link -> implement this code
-// import firebase from './Firestore';
-// import React, {Component} from 'react';
-//
+import React from 'react';
+
+const ProtestPage = (props) => {
+  return(
+    <div>
+    <p>
+    Title: {props.protestname} <br/>
+    Description: {props.description} <br/>
+    Location: {props.location} <br/>
+    Time: {props.time} <br/>
+    Key Term: {props.keyTerm} <br/><br/>
+    </p>
+    </div>
+  )
+}
+
+export default ProtestPage;
+
 // class ProtestName extends Component{
 //   constructor(){
 //     super();

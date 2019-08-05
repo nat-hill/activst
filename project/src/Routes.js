@@ -13,23 +13,9 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import React from 'react';
 import Welcome from './Welcome';
 import CustomProtestPage from './customProtestPage';
+import ProtestList from './ProtestList';
+import ProtestDocument from './ProtestDocument';
 //import React, { Component } from 'React';
-
-/*
-const Child = ({ match }) => (
-  <div>
-    <h3>Username: {match.params.id}</h3>
-  </div>
-)
-*/
-
-//<div>
-//<h2> Accounts </h2>
-//<ul>
-//<li><Link to='/profile/user1'>Profile1</Link></li>
-//</ul>
-//<Route path='/profile/:id' component={Child} />
-//</div>
 
 const Routes = () => (
   <Router>
@@ -44,6 +30,8 @@ const Routes = () => (
       <Route exact path= {"/history"} component={() => <History />}/>
       <Route exact path= {"/welcome"} component={() => <Welcome />}/>
       <Route exact path= {"/customProtestPage"} component={() => <CustomProtestPage />}/>
+      <Route exact path= {"/ProtestPage"} component={() => <ProtestList />}/>
+      // <Route path='/protest/:id' component={ProtestDocument} />
     </div>
   </Router>
 );
