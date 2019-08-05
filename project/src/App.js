@@ -5,7 +5,7 @@ import Geocode from 'react-geocode';
 import firebase from './Firestore';
 Geocode.setApiKey("AIzaSyCxo325N-PHdHAUPyZdjynOeYlDTaC8kKc");
 var L = require("leaflet");
-var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange', 'pink', "#4c69fa", "#fa4ce6","#52fa4c","#ef9906");
+var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange', "#4c69fa", "#52fa4c","#ef9906");
 
 class App extends Component {
  constructor(){
@@ -41,30 +41,24 @@ class App extends Component {
              protestname: doc.data().protestname
            })
          ))
-         console.log(protestLocations)
          for (var i = 0; i<protestLocations.length; i++){
-           console.log(protestLocations[i].location)
            Geocode.fromAddress(protestLocations[i].location).then(
                response => {
                  let { lat, lng } = response.results[0].geometry.location;
-                console.log('this')
-                 console.log(protestLocations[i])
-                 console.log(lat)
                  this.setState({
                    lat: lat,
                    lng: lng
-
-            });
-            console.log(lat)
-            console.log(lng)
-
+                 });
                var circle = L.circle([lat,lng], {
                  color: '',
                  fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
                  fillOpactity: 0.5,
                  radius: 500
                }).addTo(mymap);
-               circle.bindPopup(protestLocations[i].fullname);
+               console.log("this")
+               console.log(protestLocations)
+               console.log(protestLocations[i])
+               circle.bindPopup(protestLocations[i].protestname)
                });
          }
        })
