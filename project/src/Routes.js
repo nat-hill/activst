@@ -15,7 +15,6 @@ import Welcome from './Welcome';
 import CustomProtestPage from './customProtestPage';
 import ProtestList from './ProtestList';
 import ProtestDocument from './ProtestDocument';
-//import React, { Component } from 'React';
 
 const Routes = () => (
   <Router>
@@ -31,7 +30,7 @@ const Routes = () => (
       <Route exact path= {"/welcome"} component={() => <Welcome />}/>
       <Route exact path= {"/customProtestPage"} component={() => <CustomProtestPage />}/>
       <Route exact path= {"/ProtestPage"} component={() => <ProtestList />}/>
-      // <Route path='/protest/:id' component={ProtestDocument} />
+      <Route path='/protest/:handle' component={ProtestDocument} />
     </div>
   </Router>
 );
