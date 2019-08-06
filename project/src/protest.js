@@ -5,10 +5,13 @@ import Navbar from './navBar';
 import App from './App';
 import './App.css';
 import Login from './Login';
+import Geocode from 'react-geocode';
 import { Button, Dropdown, DropdownButton  } from 'react-bootstrap'
 
 var L = require("leaflet");
 
+
+Geocode.setApiKey("AIzaSyCxo325N-PHdHAUPyZdjynOeYlDTaC8kKc");
 
 class Protest extends React.Component {
   constructor() {
@@ -19,7 +22,9 @@ class Protest extends React.Component {
      location: "",
      description: "",
      keyTerm: "",
-     data:[]
+     data:[],
+     lat: null,
+     lng: null
     };
 };
 
@@ -66,25 +71,39 @@ componentDidMount(){
      });
 }
   addProtest = e => {
-   const db = firestore.firestore();
-    db.settings({
-      timestampsInSnapshots: true
-    });
-    const userRef = db.collection("protest").add({
-      protestname: this.state.protestname,
-      time: this.state.time,
-      location: this.state.location,
-      description: this.state.description,
-      keyTerm: this.state.keyTerm
-    });
-    e.preventDefault();
-    this.setState({
-      protestname: "",
-      time: "",
-      location: "",
-      description: "",
-      keyTerm: ""
-    });
+
+    Geocode.fromAddress(this.state.location).then(
+    response => {
+      const { lat, lng } = response.results[0].geometry.location;
+      this.setState({
+        lat: lat,
+        lng: lng
+      })
+      const db = firestore.firestore();
+       db.settings({
+         timestampsInSnapshots: true
+       });
+       const userRef = db.collection("protest").add({
+         protestname: this.state.protestname,
+         time: this.state.time,
+         location: this.state.location,
+         description: this.state.description,
+         keyTerm: this.state.keyTerm
+       });
+       e.preventDefault();
+       this.setState({
+         protestname: "",
+         time: "",
+         location: "",
+         description: "",
+         keyTerm: ""
+       });
+    },
+    error => {
+      alert('error invalid location');
+      return;
+    }
+  );
   };
 
 
