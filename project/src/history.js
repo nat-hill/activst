@@ -52,6 +52,55 @@ class History extends Component {
           radius: Math.floor((Math.random()*600)+200)
       }).addTo(historymap);
       circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Protests_against_the_Iraq_War" class="customP">Anti-Iraq War Protest, 2003</a>');
+
+        circle = L.circle([40.7359, -73.9911], {
+          color: '',
+          fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+          fillOpacity: 0.5,
+          radius: Math.floor((Math.random()*600)+200)
+      }).addTo(historymap);
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Unemployed_Councils" class="customP">Mass rally of the Jobless, November 24, 1934</a>');
+
+        circle = L.circle([40.7328, -74.0071], {
+          color: '',
+          fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+          fillOpacity: 0.5,
+          radius: 300
+      }).addTo(historymap);
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/NYC_Pride_March" class="customP">Gay Pride Rally, July 1975</a>');
+
+        circle = L.circle([40.686203, -73.82422], {
+          color: '',
+          fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+          fillOpacity: 0.5,
+          radius: Math.floor((Math.random()*600)+200)
+      }).addTo(historymap);
+      circle.bindPopup('<a href="https://www.citylab.com/transportation/2017/07/how-low-did-he-go/533019/" class="customP">Protest against the Southern Parkway, January 16, 1940</a>');
+
+        circle = L.circle([40.7333, -74.0073], {
+          color: '',
+          fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+          fillOpacity: 0.5,
+          radius: 200
+      }).addTo(historymap);
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Earth_Day#Earth_Day_1970" class="customP">First Earth Day, April 22, 1970</a>');
+
+        circle = L.circle([40.7264, -73.9818], {
+          color: '',
+          fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+          fillOpacity: 0.5,
+          radius: 200
+      }).addTo(historymap);
+      circle.bindPopup('<a href="https://www.lespi-nyc.org/history.html" class="customP">North Playground Renovation Protest, July 2, 1990</a>');
+
+        circle = L.circle([40.7301, -73.9908], {
+          color: '',
+          fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+          fillOpacity: 0.5,
+          radius: 200
+      }).addTo(historymap);
+      circle.bindPopup('<a href="https://en.wikipedia.org/wiki/Astor_Place_Riot" class="customP">Astor Place Riot, May 10, 1849</a>');
+
   }
   render(){
     return(
