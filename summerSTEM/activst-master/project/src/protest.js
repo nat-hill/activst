@@ -121,14 +121,30 @@ class Protest extends Component {
   render() {
     let varTimestamp = this.state.varTimestamp
     let currentTimestamp = Firebase.firestore.Timestamp.now()
-    console.log(this.state.currentUser)
-    console.log('varTimestamp is', varTimestamp)
-    console.log('currentTimestamp is', currentTimestamp)
     if (currentTimestamp != null && varTimestamp != null) {
       var seconds_diff = currentTimestamp.seconds - varTimestamp.seconds
     }
-    console.log('seconds diff is', seconds_diff)
+    var secondsRemaining = 86400 - seconds_diff
+    var hoursRemaining = Math.floor(secondsRemaining / 3600)
+    var minRemaining = Math.floor((secondsRemaining % 3600) / 60)
+    var secondsRemaining = secondsRemaining % 60
     if (seconds_diff < 86400) {
+      return (
+        <div>
+          <Navbar />
+          <div class="plzalign">
+            <div class="form-style-5">
+              <div class="Wait-24-hrs-page">
+                <p>You have submitted a protested in the past 24 hours.</p><br />
+                <p>You have {hoursRemaining} hours, {minRemaining} minutes, and {secondsRemaining} seconds remaining before you can submit another one.</p><br />
+                <p> Thank you.</p>
+              </div>
+            </div>
+          </div>
+          <div id="mapid1" class='BACKGROUNDMAP'></div>
+        </div>
+      )
+    } else if (seconds_diff >= 86400) {
       return (
         <div>
           <Navbar />
@@ -267,22 +283,6 @@ class Protest extends Component {
           <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
       );
-    } else {
-      return (
-        <div>
-          <Navbar />
-          <div class="plzalign">
-            <div class="form-style-5">
-              <div class="Wait-24-hrs-page">
-                <p>You have submitted a protested in the past 24 hours.</p><br />
-                <p>Please wait x time before submitting another one.</p><br />
-                <p> Thank you.</p>
-              </div>
-            </div>
-          </div>
-          <div id="mapid1" class='BACKGROUNDMAP'></div>
-        </div>
-      )
     }
   }
 }
