@@ -145,6 +145,10 @@
   width: 100% ;
   margin: 0;
 }
+.Wait-24-hrs-page{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+}
 
 .listb a:hover:not(.active) {
     background-color: #CDCDCD;

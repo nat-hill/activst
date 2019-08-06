@@ -28,7 +28,8 @@ class Protest extends Component {
      lng: null,
      submitTimestamp: null,
      signedIn: false,
-     currentUser: null
+     currentUser: null,
+     varTimestamp: null
     };
 };
 
@@ -42,6 +43,7 @@ componentDidMount(){
             id: 'mapbox.streets',
             accessToken: 'pk.eyJ1IjoiY3VzdW1tZXIiLCJhIjoiY2p5NXc5cXhwMDFxeTNmbzhwNWpsZTRibSJ9.204smoZZqhejVVBy7oiHfg'
         }).addTo(mymap);
+        console.log('didmount')
 }
             componentWillMount(){
               firebase.auth().onAuthStateChanged(user => {
@@ -50,11 +52,16 @@ componentDidMount(){
                     signedIn: true,
                     currentUser: user
                   });
+
                   const db = firebase.firestore();
                   db.settings({
                     timestampsInSnapshots: true
                   });
                 }
+                firebase.firestore().collection("users").doc(user.uid).onSnapshot(docSnapshot => {
+                  this.setState({varTimestamp:docSnapshot.data().submitTimestamp});
+                })
+                console.log('willmount')
             });
             }
 
@@ -111,9 +118,21 @@ componentDidMount(){
   );
   };
 
-
  render(){
-     return(
+   let varTimestamp = this.state.varTimestamp
+   let currentTimestamp = Firebase.firestore.Timestamp.now()
+   console.log(this.state.currentUser)
+   console.log('render')
+   console.log('varTimestamp is', varTimestamp)
+   console.log(varTimestamp)
+   console.log('currentTimestamp is', currentTimestamp)
+   if(currentTimestamp!=null && varTimestamp!=null){
+     var seconds_diff = currentTimestamp.seconds-varTimestamp.seconds
+   }
+
+
+   if (seconds_diff >= 86400){
+     return (
     <div>
       <Navbar />
       <div class ="plzalign">
@@ -127,7 +146,7 @@ componentDidMount(){
            onChange={this.updateInput}
            value={this.state.protestname}
            onChange={this.updateInput}
-	          />
+           />
 ​
           <input
           required
@@ -181,6 +200,37 @@ componentDidMount(){
       <div id="mapid1" class='BACKGROUNDMAP'></div>
     </div>
   );
-}
+   } else {
+     return (
+    <div>
+    <Navbar/>
+    <div class = "plzalign">
+    <div class = "form-style-5">
+    <div class = "Wait-24-hrs-page">
+    <p>You have submitted a protested in the past 24 hours.</p><br />
+    <p>Please wait x time before submitting another one.</p><br />
+    <p> Thank you.</p>
+    </div>
+    </div>
+    </div>
+        <div id="mapid1" class='BACKGROUNDMAP'></div>
+    </div>
+  )
+   }
+  }
 }
 export default Protest;
+
+
+// firebase.auth().onAuthStateChanged(user => {
+//   if (user) {
+//     this.setState({
+//       signedIn: true,
+//       currentUser: user
+//     });
+// const db = firebase.firestore();
+// const userRef = db.collection("users");
+// userRef.doc(user.uid).onSnapshot(docSnapshot => {
+//   this.setState({submitTimestamp:docSnapshot.data().submitTimestamp})
+// });
+//   }
