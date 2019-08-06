@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from "./Firestore";
+import Firebase from 'firebase';
 import firestore from "./Firestore";
 import Navbar from "./navBar";
 import { Form } from 'react-bootstrap';
@@ -7,7 +8,6 @@ import App from './App'
 import Welcome from './Welcome';
 import { Redirect } from 'react-router-dom';
 var L = require("leaflet");
-
 
 class User extends React.Component{
   constructor(){
@@ -23,7 +23,8 @@ class User extends React.Component{
       lgbtq: false,
       other: false,
       redirectToWelcome: false,
-      data:[]
+      data:[],
+      submitTimestamp: Firebase.firestore.Timestamp.now()
     };
   };
 
@@ -96,7 +97,8 @@ componentDidMount(){
             racialequality:  this.state.racialequality,
             policebrutality: this.state.policebrutality,
             lgbtq: this.state.lgbtq,
-            other: this.state.other
+            other: this.state.other,
+            submitTimestamp: this.state.submitTimestamp
           }).then(
             this.setState({
               username: "",

@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import firestore from "./Firestore";
+import Firebase from 'firebase';
 import firebase from 'firebase';
 import Navbar from './navBar';
 import App from './App';
 import './App.css';
 import Login from './Login';
 import Geocode from 'react-geocode';
-import { Button, Dropdown, DropdownButton  } from 'react-bootstrap'
+import { Button, Dropdown, DropdownButton  } from 'react-bootstrap';
+import User from './User';
 
 var L = require("leaflet");
 
-
 Geocode.setApiKey("AIzaSyCxo325N-PHdHAUPyZdjynOeYlDTaC8kKc");
 
-class Protest extends React.Component {
+class Protest extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,7 +25,10 @@ class Protest extends React.Component {
      keyTerm: "",
      data:[],
      lat: null,
-     lng: null
+     lng: null,
+     submitTimestamp: null,
+     signedIn: false,
+     currentUser: null
     };
 };
 
@@ -50,16 +54,6 @@ componentDidMount(){
                   db.settings({
                     timestampsInSnapshots: true
                   });
-                  const userRef = db.collection("users");
-
-                  userRef.doc(user.uid).get().then(getDoc => {
-                    if (!getDoc.exists) {
-                      userRef.doc(user.uid).set({
-                        fullname: user.displayName,
-                        email: user.email
-                      });
-                    }
-                  });
                 }
             });
             }
@@ -71,7 +65,7 @@ componentDidMount(){
      });
 }
   addProtest = e => {
-
+    e.preventDefault();
     Geocode.fromAddress(this.state.location).then(
     response => {
       const { lat, lng } = response.results[0].geometry.location;
@@ -79,25 +73,36 @@ componentDidMount(){
         lat: lat,
         lng: lng
       })
-      const db = firestore.firestore();
-       db.settings({
-         timestampsInSnapshots: true
-       });
-       const userRef = db.collection("protest").add({
-         protestname: this.state.protestname,
-         time: this.state.time,
-         location: this.state.location,
-         description: this.state.description,
-         keyTerm: this.state.keyTerm
-       });
-       e.preventDefault();
-       this.setState({
-         protestname: "",
-         time: "",
-         location: "",
-         description: "",
-         keyTerm: ""
-       });
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          this.setState({
+            signedIn: true,
+            currentUser: user
+          });
+          const db = firestore.firestore();
+           db.settings({
+             timestampsInSnapshots: true
+           });
+           db.collection("protest").add({
+             protestname: this.state.protestname,
+             time: this.state.time,
+             location: this.state.location,
+             description: this.state.description,
+             keyTerm: this.state.keyTerm
+           });
+           db.collection("users").doc(user.uid).update({
+             submitTimestamp: Firebase.firestore.Timestamp.now()
+           })
+           this.setState({
+             protestname: "",
+             time: "",
+             location: "",
+             description: "",
+             keyTerm: ""
+           });
+        }
+      })
+
     },
     error => {
       alert('error invalid location');
@@ -115,7 +120,7 @@ componentDidMount(){
       <div class="form-style-5">
        <form class ="plzalign" onSubmit={this.addProtest}>
         <input
-        required
+        // required
            type="text"
            name="protestname"
            placeholder="Protest Name"
@@ -125,7 +130,7 @@ componentDidMount(){
 	          />
 ​
           <input
-          required
+          // required
            type="datetime"
            name="time"
            placeholder="Time & Date"
@@ -133,7 +138,7 @@ componentDidMount(){
               />
 <br/>
            <input
-           required
+           // required
            type="text"
            name="location"
            placeholder="Location"
@@ -143,7 +148,7 @@ componentDidMount(){
             />
 <br/>
            <input
-           required
+           // required
            type="text"
            name="description"
            placeholder="Give a brief description of your protest."
