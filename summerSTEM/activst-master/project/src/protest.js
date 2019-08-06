@@ -137,7 +137,7 @@ class Protest extends Component {
               <div class="Wait-24-hrs-page">
                 <p>You have submitted a protested in the past 24 hours.</p><br />
                 <p>You have {hoursRemaining} hours, {minRemaining} minutes, and {secondsRemaining} seconds remaining before you can submit another one.</p><br />
-                <p> Thank you.</p>
+                <p>Thank you.</p>
               </div>
             </div>
           </div>
