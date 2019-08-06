@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Navbar from './navBar';
 import './App.css';
 import Geocode from 'react-geocode';
+import firebase from './Firestore';
 Geocode.setApiKey("AIzaSyCxo325N-PHdHAUPyZdjynOeYlDTaC8kKc");
 var L = require("leaflet");
 var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange', 'pink', "#4c69fa", "#fa4ce6","#52fa4c","#ef9906");
@@ -31,25 +32,42 @@ class App extends Component {
            'maxHeight': '200',
            'className' : 'popupCustom'
            }
+       let protestLocations = [];
+       const db = firebase.firestore();
+       db.collection("protest").get().then((snapshot) => {
+         snapshot.forEach((doc) => (
+           protestLocations.push({
+             location: doc.data().location,
+             protestname: doc.data().protestname
+           })
+         ))
+         console.log(protestLocations)
+         for (var i = 0; i<protestLocations.length; i++){
+           console.log(protestLocations[i].location)
+           Geocode.fromAddress(protestLocations[i].location).then(
+               response => {
+                 let { lat, lng } = response.results[0].geometry.location;
+                console.log('this')
+                 console.log(protestLocations[i])
+                 console.log(lat)
+                 this.setState({
+                   lat: lat,
+                   lng: lng
 
-              Geocode.fromAddress("30 Cooper Square").then(
-                  response => {
-                    const { lat, lng } = response.results[0].geometry.location;
-                    this.setState({
-                      lat: lat,
-                      lng: lng
+            });
+            console.log(lat)
+            console.log(lng)
 
+               var circle = L.circle([lat,lng], {
+                 color: '',
+                 fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
+                 fillOpactity: 0.5,
+                 radius: 500
+               }).addTo(mymap);
+               circle.bindPopup(protestLocations[i].fullname);
                });
-
-
-                  var circle = L.circle([lat,lng], {
-                    color: '',
-                    fillColor: ColorsList[Math.floor(Math.random()*ColorsList.length)],
-                    fillOpactity: 0.5,
-                    radius: 500
-                  }).addTo(mymap);
-                  circle.bindPopup('cooper union');
-                  });
+         }
+       })
 
 
 
