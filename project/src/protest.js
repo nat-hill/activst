@@ -120,7 +120,7 @@ componentDidMount(){
       <div class="form-style-5">
        <form class ="plzalign" onSubmit={this.addProtest}>
         <input
-        // required
+        required
            type="text"
            name="protestname"
            placeholder="Protest Name"
@@ -130,7 +130,7 @@ componentDidMount(){
 	          />
 ​
           <input
-          // required
+          required
            type="datetime"
            name="time"
            placeholder="Time & Date"
@@ -138,7 +138,7 @@ componentDidMount(){
               />
 <br/>
            <input
-           // required
+           required
            type="text"
            name="location"
            placeholder="Location"
@@ -148,7 +148,7 @@ componentDidMount(){
             />
 <br/>
            <input
-           // required
+           required
            type="text"
            name="description"
            placeholder="Give a brief description of your protest."
