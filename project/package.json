@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://gitlab.com/edlei/activst/issues"
   },
-  "homepage": "https://gitlab.com/edlei/activst#readme",
+  "homepage": "https://activst.netlify.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
