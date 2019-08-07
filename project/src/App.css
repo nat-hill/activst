@@ -58,7 +58,7 @@
 
 .listb {
     float: left;
-    width:16.6%;
+    width: 20%;
 
 }
 
@@ -188,10 +188,9 @@
 
 .form-style-5{
 	max-width: 900px;
-	padding: 10px 20px;
 	background: #f4f7f8;
-	margin: 10px auto;
 	padding: 20px;
+  margin-left: -10%;
 	background: #f4f7f8;
 	border-radius: 8px;
 	font-family: 'Lato', sans-serif;
@@ -306,11 +305,6 @@
 
 #mapid1 {
     height: 700px;
-}
-
-.plzalign {
-  text-align: left;
-  align: center;
 }
 
 
