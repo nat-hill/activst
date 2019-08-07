@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './Firestore';
-import Navbar from './navBar';
+import NavBar from './navBar';
 import { Container, Jumbotron } from 'react-bootstrap';
 
 class ProtestDocument extends Component {
@@ -24,7 +24,7 @@ class ProtestDocument extends Component {
   render() {
     return (
       <div class='protestHeader'>
-        <Navbar />
+        <NavBar />
         <Container>
           <Jumbotron>
             <h1>{this.state.protestname}</h1>

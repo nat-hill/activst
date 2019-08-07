@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firestore from "./Firestore";
 import Firebase from 'firebase';
 import firebase from 'firebase';
-import Navbar from './navBar';
+import NavBar from './navBar';
 import App from './App';
 import './App.css';
 import Login from './Login';
@@ -144,7 +144,7 @@ class Protest extends Component {
     if (account_seconds_diff < 86400){
       return (
       <div>
-        <Navbar />
+        <NavBar />
         <div class="plzalign">
           <div class="form-style-5">
             <div class="Wait-24-hrs-page">
@@ -160,7 +160,7 @@ class Protest extends Component {
     } else if (seconds_diff < 86400) {
       return (
         <div>
-          <Navbar />
+          <NavBar />
           <div class="plzalign">
             <div class="form-style-5">
               <div class="Wait-24-hrs-page">
@@ -176,7 +176,7 @@ class Protest extends Component {
     } else if (seconds_diff >= 86400) {
       return (
         <div>
-          <Navbar />
+          <NavBar />
           <div class="plzalign">
             <div class="form-style-5">
               <form class="plzalign" onSubmit={this.addProtest}>
@@ -245,7 +245,7 @@ class Protest extends Component {
     } else if (currentTimestamp != null && varTimestamp == null) {
       return (
         <div>
-          <Navbar />
+          <NavBar />
             <div class="form-style-5">
               <form class="plzalign" onSubmit={this.addProtest}>
                 <p>Welcome! You can create a protest every 24 hours, so be mindful of what you post. -Activst</p>

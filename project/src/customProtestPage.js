@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Navbar from './navBar';
+import NavBar from './navBar';
 import firebase from './Firestore';
 import { Container, Jumbotron } from 'react-bootstrap';
 
@@ -12,7 +12,7 @@ class CustomProtestPage extends Component{
   render(){
     return(
       <div class = 'protestHeader'>
-      <Navbar/>
+      <NavBar/>
       <Container>
       <Jumbotron>
       <h1>title</h1>

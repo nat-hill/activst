@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firebase from './Firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import Navbar from './navBar';
+import NavBar from './navBar';
 import './App.css'
 import { Redirect } from 'react-router-dom'
 import User from './User';
@@ -65,7 +65,7 @@ class Login extends Component {
     }else{
       return(
         <div>
-        <Navbar />
+        <NavBar />
           <div class="signIn">
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
           </div>

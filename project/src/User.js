@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from "./Firestore";
 import Firebase from 'firebase';
 import firestore from "./Firestore";
-import Navbar from "./navBar";
+import NavBar from "./navBar";
 import { Form } from 'react-bootstrap';
 import App from './App'
 import Welcome from './Welcome';
@@ -131,7 +131,7 @@ componentDidMount(){
     }
     return(
       <div>
-      <Navbar />
+      <NavBar />
       <div class ="plzalign">
       <div class="form-style-5">
        <form class ="plzalign" onSubmit={this.addUser}>

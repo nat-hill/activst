@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Leaderboard.css';
 import Routes from './Routes';
-import Navbar from './navBar';
+import NavBar from './navBar';
 
 class Leaderboard extends Component{
   constructor(){
@@ -27,7 +27,7 @@ class Leaderboard extends Component{
   </head>
 
   <body ng-app="boardApp">
-    <Navbar />
+    <NavBar />
   	<div ng-controller="boardController">
 
   		<div class="row">

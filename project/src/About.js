@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Navbar from './navBar';
+import NavBar from './navBar';
 
 class About extends Component {
   constructor(){
@@ -23,7 +23,7 @@ class About extends Component {
           </head>
           <body>
           <div class="NavContainer">
-            <Navbar />
+            <NavBar />
           </div>
             <div class="container">
               <div class="masthead">

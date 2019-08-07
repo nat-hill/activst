@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Navbar from './navBar';
+import NavBar from './navBar';
 import firebase from './Firestore';
 
 class Welcome extends Component{
@@ -29,7 +29,7 @@ class Welcome extends Component{
     console.log(this.state.fullname);
     return(
       <div>
-      <Navbar />
+      <NavBar />
       <div class='welcome'>
       Welcome to Activst, {this.state.fullname}
       <br />

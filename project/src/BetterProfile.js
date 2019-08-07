@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Navbar from './navBar';
+import NavBar from './navBar';
 import { Container, Row, Col, Image, Jumbotron, Button } from 'react-bootstrap';
 import firebase from './Firestore';
 import Fullname from './retrieveFullname';
@@ -83,7 +83,7 @@ addURL = e => {
       <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
         <div>
-        <Navbar/>
+        <NavBar/>
       <Container>
       <Jumbotron>
         <h1><Fullname/></h1>

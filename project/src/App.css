@@ -172,6 +172,14 @@
   width: 87px;
 }
 
+.collapseNavBarButton {
+  float: left;
+  margin: 10px;
+  margin-right: 20px;
+  height: 47px;
+  width: 87px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
