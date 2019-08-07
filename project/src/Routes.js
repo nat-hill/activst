@@ -12,6 +12,7 @@ import Welcome from './Welcome';
 import CustomProtestPage from './customProtestPage';
 import ProtestList from './ProtestList';
 import ProtestDocument from './ProtestDocument';
+import Editprofile from './Editprofile';
 
 const Routes = () => (
   <Router>
@@ -25,6 +26,7 @@ const Routes = () => (
       <Route exact path={"/protest.js"} component={() => <Protest />} />
       <Route exact path={"/history"} component={() => <History />} />
       <Route exact path={"/welcome"} component={() => <Welcome />} />
+      <Route exact path={"/Editprofile"} component={() => <Editprofile />} />
       <Route exact path={"/customProtestPage"} component={() => <CustomProtestPage />} />
       <Route exact path={"/ProtestPage"} component={() => <ProtestList />} />
       <Route path='/protest/:id' component={ProtestDocument} />

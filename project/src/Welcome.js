@@ -30,7 +30,11 @@ class Welcome extends Component{
     return(
       <div>
       <Navbar />
-      Welcome, {this.state.fullname}
+      <div class='welcome'>
+      Welcome to Activst, {this.state.fullname}
+      <br />
+   <b>    We hope you enjoy your stay! </b>
+      </div>
       </div>
     )
   }

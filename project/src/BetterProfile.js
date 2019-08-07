@@ -5,6 +5,7 @@ import { Container, Row, Col, Image, Jumbotron, Button } from 'react-bootstrap';
 import firebase from './Firestore';
 import Fullname from './retrieveFullname';
 import Biography from './retrieveBiography';
+import Editprofile from './Editprofile';
 
 class BetterProfile extends Component{
   constructor() {
@@ -96,7 +97,7 @@ addURL = e => {
           <Biography />
         </p>
         <p>
-          <Button href='/User'>Edit Profile</Button>
+          <Button href='/Editprofile'>Edit Profile</Button>
         </p>
 
         <p>
