@@ -24,7 +24,8 @@ class User extends React.Component{
       other: false,
       redirectToWelcome: false,
       data:[],
-      submitTimestamp: Firebase.firestore.Timestamp.now()
+      submitTimestamp: Firebase.firestore.Timestamp.now(),
+      accountTimestamp: Firebase.firestore.Timestamp.now()
     };
   };
 
@@ -98,7 +99,8 @@ componentDidMount(){
             policebrutality: this.state.policebrutality,
             lgbtq: this.state.lgbtq,
             other: this.state.other,
-            submitTimestamp: this.state.submitTimestamp
+            submitTimestamp: this.state.submitTimestamp,
+            accountTimestamp: this.state.accountTimestamp
           }).then(
             this.setState({
               username: "",

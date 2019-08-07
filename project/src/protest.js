@@ -29,7 +29,8 @@ class Protest extends Component {
       submitTimestamp: null,
       signedIn: false,
       currentUser: null,
-      varTimestamp: null
+      varTimestamp: null,
+      accountTimestamp: null
     };
   };
 
@@ -60,6 +61,8 @@ class Protest extends Component {
       }
       firebase.firestore().collection("users").doc(user.uid).onSnapshot(docSnapshot => {
         this.setState({ varTimestamp: docSnapshot.data().submitTimestamp });
+        this.setState({ accountTimestamp: docSnapshot.data().accountTimestamp });
+
       })
       console.log('willmount')
     });
@@ -120,15 +123,41 @@ class Protest extends Component {
 
   render() {
     let varTimestamp = this.state.varTimestamp
+    let accountTimestamp = this.state.accountTimestamp
     let currentTimestamp = Firebase.firestore.Timestamp.now()
     if (currentTimestamp != null && varTimestamp != null) {
       var seconds_diff = currentTimestamp.seconds - varTimestamp.seconds
+    }
+    if (currentTimestamp != null && accountTimestamp != null) {
+      var account_seconds_diff = currentTimestamp.seconds - accountTimestamp.seconds
     }
     var secondsRemaining = 86400 - seconds_diff
     var hoursRemaining = Math.floor(secondsRemaining / 3600)
     var minRemaining = Math.floor((secondsRemaining % 3600) / 60)
     var secondsRemaining = secondsRemaining % 60
-    if (seconds_diff < 86400) {
+
+    var acc_secondsRemaining = 86400 - account_seconds_diff
+    var acc_hoursRemaining = Math.floor(acc_secondsRemaining / 3600)
+    var acc_minRemaining = Math.floor((acc_secondsRemaining % 3600) / 60)
+    var acc_secondsRemaining = acc_secondsRemaining % 60
+
+    if (account_seconds_diff < 86400){
+      return (
+      <div>
+        <Navbar />
+        <div class="plzalign">
+          <div class="form-style-5">
+            <div class="Wait-24-hrs-page">
+              <p>You have created your account in the past 24 hours.</p><br />
+              <p>You have {acc_hoursRemaining} hours, {acc_minRemaining} minutes, and {acc_secondsRemaining} seconds remaining before you can begin creating protests.</p><br />
+              <p>Thank you.</p>
+            </div>
+          </div>
+        </div>
+        <div id="mapid1" class='BACKGROUNDMAP'></div>
+      </div>
+    )
+    } else if (seconds_diff < 86400) {
       return (
         <div>
           <Navbar />
