@@ -287,17 +287,3 @@ class Protest extends Component {
   }
 }
 export default Protest;
-
-
-// firebase.auth().onAuthStateChanged(user => {
-//   if (user) {
-//     this.setState({
-//       signedIn: true,
-//       currentUser: user
-//     });
-// const db = firebase.firestore();
-// const userRef = db.collection("users");
-// userRef.doc(user.uid).onSnapshot(docSnapshot => {
-//   this.setState({submitTimestamp:docSnapshot.data().submitTimestamp})
-// });
-//   }

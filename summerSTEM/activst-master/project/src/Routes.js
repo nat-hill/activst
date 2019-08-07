@@ -1,5 +1,5 @@
 import App from './App';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import Login from './Login';
 import User from './User';
 import Leaderboard from './Leaderboard';
@@ -27,7 +27,7 @@ const Routes = () => (
       <Route exact path={"/welcome"} component={() => <Welcome />} />
       <Route exact path={"/customProtestPage"} component={() => <CustomProtestPage />} />
       <Route exact path={"/ProtestPage"} component={() => <ProtestList />} />
-      <Route path='/protest/:handle' component={ProtestDocument} />
+      <Route path='/protest/:id' component={ProtestDocument} />
     </div>
   </Router>
 );

@@ -10,7 +10,7 @@ var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange',
 class App extends Component {
   constructor() {
     super();
-    this.state = { lat: null, lng: null, protest: null };
+    this.state = { lat: null, lng: null, protest: null, };
   }
 
   componentDidMount() {
@@ -50,7 +50,7 @@ class App extends Component {
               fillOpacity: 0.5,
               radius: 500
             }).addTo(mymap);
-            circle.bindPopup(`<a href="https://localhost:3000/protest/${obj.id}">${obj.protestname}</div>`);
+            circle.bindPopup(`<a href="/protest/${obj.id}">${obj.protestname}</div>`);
           }
         )
       });
@@ -114,4 +114,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;

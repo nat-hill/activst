@@ -6,20 +6,14 @@ import { Container, Jumbotron } from 'react-bootstrap';
 class ProtestDocument extends Component {
   constructor(props) {
     super(props);
-    this.state = { protestname: '', description: '', location: '', time: '', protest: null, id: this.props.match.params.handle };
+    this.state = { protestname: '', description: '', location: '', time: '', };
   }
-  componentDidMount() {
-    const { handle } = this.props.match.params;
 
-    fetch(`https://localhost:3000/protest/${handle}`)
-      .then((protest) => {
-        this.setState(() => ({ protest }))
-      })
-  }
   componentWillMount() {
+    let id = this.props.match.params.id
     const db = firebase.firestore();
     const protestRef = db.collection("protest");
-    protestRef.doc(this.state.id).onSnapshot(docSnapshot => {
+    protestRef.doc(id).onSnapshot(docSnapshot => {
       this.setState({ protestname: docSnapshot.data().protestname });
       this.setState({ description: docSnapshot.data().description });
       this.setState({ location: docSnapshot.data().location });
