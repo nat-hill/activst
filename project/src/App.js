@@ -10,7 +10,7 @@ var ColorsList = new Array('red', 'green', 'blue', 'orange', 'yellow', 'orange',
 class App extends Component {
   constructor() {
     super();
-    this.state = { lat: null, lng: null, protest: null };
+    this.state = { lat: null, lng: null, protest: null, };
   }
 
   componentDidMount() {
@@ -35,41 +35,61 @@ class App extends Component {
       ))
 
       console.log(JSON.stringify(protestLocations));
-      for (var i = 0; i < protestLocations.length; i++) {
-        var obj = protestLocations[i];
-        for (var key in obj) {
-          let value = obj[key];
-          //   console.log("this")
-          //   console.log('obj:', obj)
-          //   console.log(obj.location)
-          //   console.log(obj.protestname)
-          // console.log('key:', key)
-          // console.log('value:', value)
-          Geocode.fromAddress(obj.location).then(
-            response => {
-              let { lat, lng } = response.results[0].geometry.location;
-              this.setState({
-                lat: lat,
-                lng: lng
-              });
-              var circle = L.circle([lat, lng], {
-                color: '',
-                fillColor: ColorsList[Math.floor(Math.random() * ColorsList.length)],
-                fillOpactity: 0.5,
-                radius: 500
-              }).addTo(mymap);
-              // var customPopup = `<a href="https://localhost:3000/protest/${protestIDs[i - 1]}" class="customP">${protestnames[i - 1]}</div>`;
-              var customOptions =
-              {
-                'maxWidth': '200',
-                'maxHeight': '200',
-                'className': 'popupCustom'
-              }
-              circle.bindPopup(`<a href="https://localhost:3000/protest/${obj.id}" class="customP">${value}</div>`, customOptions);
-            });
-        }
 
-      }
+      protestLocations.forEach((obj) => {
+        Geocode.fromAddress(obj.location).then(
+          response => {
+            let { lat, lng } = response.results[0].geometry.location;
+            this.setState({
+              lat: lat,
+              lng: lng
+            });
+            var circle = L.circle([lat, lng], {
+              color: '',
+              fillColor: ColorsList[Math.floor(Math.random() * ColorsList.length)],
+              fillOpacity: 0.5,
+              radius: 500
+            }).addTo(mymap);
+            circle.bindPopup(`<a href="/protest/${obj.id}">${obj.protestname}</div>`);
+          }
+        )
+      });
+
+      // for (var i = 0; i < protestLocations.length; i++) {
+      //   var obj = protestLocations[i];
+      //   for (var key in obj) {
+      //     let value = obj[key];
+      //     //   console.log("this")
+      //     //   console.log('obj:', obj)
+      //     //   console.log(obj.location)
+      //     //   console.log(obj.protestname)
+      //     // console.log('key:', key)
+      //     // console.log('value:', value)
+      //     Geocode.fromAddress(obj.location).then(
+      //       response => {
+      //         let { lat, lng } = response.results[0].geometry.location;
+      //         this.setState({
+      //           lat: lat,
+      //           lng: lng
+      //         });
+      //         var circle = L.circle([lat, lng], {
+      //           color: '',
+      //           fillColor: ColorsList[Math.floor(Math.random() * ColorsList.length)],
+      //           fillOpactity: 0.5,
+      //           radius: 500
+      //         }).addTo(mymap);
+      //         // var customPopup = `<a href="https://localhost:3000/protest/${protestIDs[i - 1]}" class="customP">${protestnames[i - 1]}</div>`;
+      //         var customOptions =
+      //         {
+      //           'maxWidth': '200',
+      //           'maxHeight': '200',
+      //           'className': 'popupCustom'
+      //         }
+      //         circle.bindPopup(`<a href="https://localhost:3000/protest/${value}" class="customP">${value}</div>`, customOptions);
+      //       });
+      //   }
+
+      // }
     })
 
 
@@ -94,4 +114,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
