@@ -5,7 +5,6 @@ import firestore from "./Firestore";
 import Navbar from "./navBar";
 import { Form } from 'react-bootstrap';
 import App from './App'
-import Welcome from './Welcome';
 import { Redirect } from 'react-router-dom';
 var L = require("leaflet");
 
@@ -21,9 +20,7 @@ class Editprofile extends React.Component{
       policebrutality: false,
       lgbtq: false,
       other: false,
-      redirectToWelcome: false,
       data:[],
-      submitTimestamp: Firebase.firestore.Timestamp.now()
     };
   };
 
@@ -83,6 +80,28 @@ componentDidMount(){
           db.settings({
              timestampsInSnapshots: true
           });
+          db.collection('users').doc(user.uid).set({
+            fullname: this.state.fullname,
+            biography: this.state.biography,
+            globalwarming: this.state.globalwarming,
+            genderequality: this.state.genderequality,
+            racialequality:  this.state.racialequality,
+            policebrutality: this.state.policebrutality,
+            lgbtq: this.state.lgbtq,
+            other: this.state.other,
+          }).then(
+            this.setState({
+              fullname: "",
+              biography: "",
+              globalwarming: false,
+              genderequality: false,
+              racialequality:  false,
+              policebrutality: false,
+              lgbtq: false,
+              other: false,
+            })
+
+          )
 
         }
       });
@@ -90,10 +109,10 @@ componentDidMount(){
 
 
   render(){
-    const redirectToWelcome = this.state.redirectToWelcome;
-    if (redirectToWelcome === true){
-      return <Redirect to='/Welcome'/>
-    }
+    // const redirectToWelcome = this.state.redirectToWelcome;
+    // if (redirectToWelcome === true){
+    //   return <Redirect to='/Welcome'/>
+    // }
     return(
       <div>
       <Navbar />
