@@ -46,6 +46,7 @@ class BetterProfile extends Component{
         });
         userRef.doc(user.uid).onSnapshot(docSnapshot => {
           this.setState({protestIDs: docSnapshot.data().protests});
+          if (this.state.protestIDs != null) {
           this.state.protestIDs.forEach(protestID => {
             protestRef.doc(protestID).onSnapshot(docSnapshot => {
               this.setState({ protestnames: [...this.state.protestnames, docSnapshot.data().protestname] });
@@ -54,6 +55,7 @@ class BetterProfile extends Component{
               this.setState({ times: [...this.state.times, docSnapshot.data().time] });
             })
           });
+        }
           this.setState({loaded: true})
           console.log(this.state.loaded)
         }, err => {
