@@ -31,7 +31,7 @@ class Protest extends Component {
       currentUser: null,
       varTimestamp: null,
       accountTimestamp: null,
-      protestID: null
+      protestID: null,
     };
   };
 
@@ -154,7 +154,7 @@ class Protest extends Component {
     var acc_minRemaining = Math.floor((acc_secondsRemaining % 3600) / 60)
     var acc_secondsRemaining = acc_secondsRemaining % 60
 
-    if (account_seconds_diff < 86400) {
+    if (account_seconds_diff <= 86400) {
       return (
         <div>
           <NavBar />
@@ -170,7 +170,7 @@ class Protest extends Component {
           <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
       )
-    } else if (seconds_diff >= 86400) {
+    } else if (seconds_diff <= 86400) {
       return (
         <div>
           <NavBar />

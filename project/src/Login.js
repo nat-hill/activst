@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import firebase from './Firestore';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import NavBar from './navBar';
 import './App.css'
 import { Redirect } from 'react-router-dom'
 import User from './User';
+import BetterProfile from './BetterProfile';
 
 const uiConfig = {
   signInFlow: 'popup',
@@ -20,11 +21,11 @@ const uiConfig = {
   ]
 };
 class Login extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state = {signedIn: false, currentUser: null};
+    this.state = { signedIn: false, currentUser: null };
   }
-  componentWillMount(){
+  componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({
@@ -46,28 +47,28 @@ class Login extends Component {
           }
         });
       }
-  });
-}
-  signOut = () => firebase.auth().signOut().then( () => {
+    });
+  }
+  signOut = () => firebase.auth().signOut().then(() => {
     this.setState({
       signedIn: false,
       currentUser: null
     });
   });
 
-  render(){
-    if (this.state.signedIn){
-      return(
+  render() {
+    if (this.state.signedIn) {
+      return (
         <div>
-          <User />
+          <BetterProfile />
         </div>
       );
-    }else{
-      return(
+    } else {
+      return (
         <div>
-        <NavBar />
+          <NavBar />
           <div class="signIn">
-          <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
           </div>
 
         </div>
