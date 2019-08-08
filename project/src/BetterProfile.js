@@ -54,14 +54,13 @@ class BetterProfile extends Component{
               this.setState({ times: [...this.state.times, docSnapshot.data().time] });
             })
           });
-
+          this.setState({loaded: true})
+          console.log(this.state.loaded)
         }, err => {
           console.log('Encountered error: ${err}');
         });
       }
   });
-  this.setState({loaded: true})
-  console.log(this.state.loaded)
 }
 
 
@@ -271,7 +270,7 @@ cx="17.22" cy="7.52" r="1.63"/><path d="M7.6
     )
       } else {
         return (
-          <div>
+          <div class="loading">
             <Container>
               <Jumbotron>
               please wait

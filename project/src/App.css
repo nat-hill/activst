@@ -51,6 +51,11 @@
     background-color: #0d98ba;
 }
 
+.loading{
+  font-size: 90px;
+  text-align: center;
+}
+
 .sticky {
     position: sticky;
     top: 0px;
