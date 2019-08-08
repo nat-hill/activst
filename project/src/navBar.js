@@ -74,9 +74,6 @@ render(){
               <li class ="listb">
                 <a class="nav" href="myProfile">My Profile</a>
               </li>
-              <li class ="listb">
-                <a class="nav" href="leaderboard">Leaderboard(WIP)</a>
-              </li>
               <li class="listb">
                 <a class="nav" href="about">About Us</a>
               </li>
@@ -111,9 +108,6 @@ render(){
            </li>
            <li class ="listb">
              <a class="nav" href="login">My Profile</a>
-           </li>
-           <li class ="listb">
-             <a class="nav" href="leaderboard">Leaderboard(WIP)</a>
            </li>
            <li class="listb">
              <a class="nav" href="about">About Us</a>

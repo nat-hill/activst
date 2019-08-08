@@ -217,7 +217,6 @@ class Protest extends Component {
       return (
         <div>
           <Navbar />
-          <div class="plzalign">
             <div class="form-style-5">
               <form class="plzalign" onSubmit={this.addProtest}>
                 <p>Welcome! You can create a protest every 24 hours, so be mindful of what you post. -Activst</p>
@@ -278,7 +277,6 @@ class Protest extends Component {
                   <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
                 </div>
               </form>
-            </div>
           </div>
           <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
