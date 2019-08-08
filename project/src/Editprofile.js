@@ -177,6 +177,9 @@ class Editprofile extends React.Component {
                 <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
               </div>
             </form>
+            <footer class="footer">
+              <p>© Activst 2019</p>
+            </footer>
           </div>
         </div>
         <div id="mapid1" class='BACKGROUNDMAP2'></div>

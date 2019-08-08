@@ -266,7 +266,11 @@ cx="17.22" cy="7.52" r="1.63"/><path d="M7.6
 
         </p>
       </Jumbotron>
+          <footer class="footer">
+            <p>© Activst 2019</p>
+          </footer>
       </Container>
+
       </div>
     </body>
     )

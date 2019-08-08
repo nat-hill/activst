@@ -181,12 +181,13 @@ class Protest extends Component {
                 <p>You have {hoursRemaining} hours, {minRemaining} minutes, and {secondsRemaining} seconds remaining before you can submit another one.</p><br />
                 <p>Thank you.</p>
               </div>
+
             </div>
           </div>
           <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
       )
-    } else if (seconds_diff < 86400) {
+    } else if (seconds_diff > 86400) {
       return (
         <div>
           <NavBar />
