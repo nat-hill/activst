@@ -10,9 +10,7 @@ import Editprofile from './Editprofile';
 class BetterProfile extends Component{
   constructor() {
     super();
-    this.state = {
-      url:""
-    };
+    this.state = {url:"", protestIDs:"", protestnames:[], locations:[], descriptions:[], times:[], loaded: false};
   }
   previewProfileImage( uploader ) {
       //ensure a file was selected
@@ -34,10 +32,8 @@ class BetterProfile extends Component{
           currentUser: user,
         });
         const db = firebase.firestore();
-        db.settings({
-          timestampsInSnapshots: true
-        });
         const userRef = db.collection("users");
+        const protestRef = db.collection("protest");
 
         userRef.doc(user.uid).get().then(getDoc => {
           if (!getDoc.exists) {
@@ -48,8 +44,24 @@ class BetterProfile extends Component{
             });
           }
         });
+        userRef.doc(user.uid).onSnapshot(docSnapshot => {
+          this.setState({protestIDs: docSnapshot.data().protests});
+          this.state.protestIDs.forEach(protestID => {
+            protestRef.doc(protestID).onSnapshot(docSnapshot => {
+              this.setState({ protestnames: [...this.state.protestnames, docSnapshot.data().protestname] });
+              this.setState({ descriptions: [...this.state.descriptions, docSnapshot.data().description] });
+              this.setState({ locations: [...this.state.locations, docSnapshot.data().location] });
+              this.setState({ times: [...this.state.times, docSnapshot.data().time] });
+            })
+          });
+
+        }, err => {
+          console.log('Encountered error: ${err}');
+        });
       }
   });
+  this.setState({loaded: true})
+  console.log(this.state.loaded)
 }
 
 
@@ -75,9 +87,37 @@ addURL = e => {
         });
   }
 
-
-
   render(){
+    if (this.state.loaded === true) {
+      console.log(this.state.protestnames)
+    const loadProtests = (protestnames,b,c,d) =>{
+      for (var i = 0; i < protestnames.length; i++) {
+        return(
+          <div>
+            <p>Created:</p>
+            <p>{protestnames[i]}</p>
+            <p>{b[i]}</p>
+            <p>{c[i]}</p>
+            <p>{d[i]}</p>
+          </div>
+        )
+      }
+
+    }
+    let protestnames = this.state.protestnames;
+    let locations = this.state.locations;
+    let descriptions = this.state.descriptions;
+    let times = this.state.times;
+    for (var i = 0; i < protestnames.length; i++) {
+      // return(
+      //   <div>
+      //     <p>{protestnames[i]}</p>
+      //     <p>{descriptions[i]}</p>
+      //     <p>{locations[i]}</p>
+      //     <p>{times[i]}</p>
+      //   </div>
+      // )
+    }
       return(
       <body>
       <div id="fb-root"></div>
@@ -92,13 +132,15 @@ addURL = e => {
             <a href="/"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXk5ueutLfn6eqrsbTp6+zg4uOwtrnJzc/j5earsbW0uby4vcDQ09XGyszU19jd3+G/xMamCvwDAAAFLklEQVR4nO2d2bLbIAxAbYE3sDH//7WFbPfexG4MiCAcnWmnrzkjIRaD2jQMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMw5wQkHJczewxZh2lhNK/CBOQo1n0JIT74/H/qMV0Z7GU3aCcVPuEE1XDCtVLAhgtpme7H0s1N1U7QjO0L8F7llzGeh1hEG/8Lo7TUmmuSrOfns9xnGXpXxsONPpA/B6OqqstjC6Ax/0ujkNdYQQbKNi2k64qiiEZ+ohi35X+2YcZw/WujmslYewiAliVYrxgJYrdwUmwXsU+RdApUi83oNIE27YvrfB/ZPg8+BJETXnqh9CVzBbTQHgojgiCvtqU9thFJg/CKz3VIMKMEkIXxIWqIpIg2SkjYj+xC816mrJae2aiWGykxRNsW0UwiJghJDljYI5CD8GRiCtIsJxizYUPQ2pzItZy5pcisTRdk/a9m4amtNNfBuQkdVhSaYqfpNTSFGfb9GRIakrE2Pm+GFLaCQPqiu0OpWP+HMPQQcgQMiQprWXNmsVwIjQjYi/ZrhAqNTCgr2gu0Jnz85RSSjso0HkMFZ0YZjKkc26a/jlmh9JiDyDxi9oeorTYAzZkwwoMz19pzj9bnH/GP/+qbchjSGflneWYhtTuKdMOmNKZcJ5TjInQKcYXnESd/jQxy0ENpULTNGOGgxpap/oyw9pbUAqhfx2Dbkhovvfgz4iUzoM9+GlK6/Mh4q29hyC1mwro30hpVVLPF9wYQr71RazOeM5/cw81iBRD+A03aM9/C/obbrKjbYSpCmIVG3qT/Q8oeUo3Rz0IL7vI1tEbCB9pSiu8I/aV8x3Kg/BGWrWp4ZVs0nZfmAoEG4h/61yHYIJiFSl6Q0Vk6tTW1N8kYp8hdOkfHYYMXd2Qft+8CYwqYDSKvqIh+MCF8Wgca2u/cwdgeW3TtuVn6+1oBs3yLo5C2JpK6CvQzGpfUkz9UG/87gCsi5o2LIXolxN0FbwAsjOLEr+YJmXn7iR6N0BCt5p5cMxm7eAsfS+/CACQf4CTpKjzgkvr2cVarVTf96372yut7XLJ1sa7lv6VcfgYrWaxqr3Wlo1S6pvStr22sxOtTNPLzdY3nj20bPP+ejFdJYkLsjGLdtPBEbe/mr2bQKiXWJDroA+vtzc0p9aahuwqHMDYrQEXHEw9jwQl3drMpts9JBU1SdktPe5FBRdJQ6bwXBpa57ib2A8kukQDzMjh++Uo7Fo6Wd02Pkf4fknqoo4HtvAIjsqUcjx6DIPgWCaOML9rKI/oqD9/lgNrn+eF+p7j8tnzHBiR7+kdUGw/+V1Kzkc75mMy6U+FMaxjPibiM1U1uGM+puInHpmALZCgP4pt7i840MV8+0R1zPsRB6UTcqpizncYwZ89syDydfyWCwXB1l8/zRNGWbTG/GHKUm9AkxHMc/EGSk3z2+ArEhPEV5TUBLEvUGFcjEUH80J/jveTGOAJEljJbILWGQT3zRYiwuKsUXN1EEJAzBhRJFll7mBUG7KD8EqPkKekBREaL8hMDZLQSG6AQjtHPYmvTQnX0TtpC1SYCe2YdkkyLP3jj5BSbKiuR585eQhTgoje6yIb0Yb0C+mV6EYvebqw5SDy2WmubogZiF2AVxPC2FpDf8H2Q9QWo6IkjUxTWVEI3WY/wrCeSuqJ+eRWzXR/JXwgVjUMozbCOfoEZiSiKVGepqv5CJ8RyR4D7xBeamqa7z3BJ/z17JxuBPdv93d/a2Ki878MMAzDMAzDMAzDMAzDMF/KP09VUmxBAiI3AAAAAElFTkSuQmCC"/>
           </Col>
         </Row>
-
         <p>
           <Biography />
         </p>
         <p>
           <Button href='/Editprofile'>Edit Profile</Button>
         </p>
+        <hr/>
+        <h1>Latest Activity:</h1>
+        <p>{loadProtests(protestnames,locations,descriptions,times)}</p>
 
         <p>
         <a class="resp-sharing-button__link"
@@ -226,7 +268,18 @@ cx="17.22" cy="7.52" r="1.63"/><path d="M7.6
       </Container>
       </div>
     </body>
-    );
+    )
+      } else {
+        return (
+          <div>
+            <Container>
+              <Jumbotron>
+              please wait
+              </Jumbotron>
+            </Container>
+          </div>
+        )
+      }
     }
 }
 

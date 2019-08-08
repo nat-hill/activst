@@ -1,13 +1,13 @@
 import firebase from './Firestore';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import protest from './protest';
 
-class Location extends Component{
-  constructor(){
+class Location extends Component {
+  constructor() {
     super();
-    this.state = {signedIn: false, currentUser: null, location:''};
+    this.state = { signedIn: false, currentUser: null, location: '' };
   }
-  componentWillMount(){
+  componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({
@@ -22,11 +22,8 @@ class Location extends Component{
           database.push(getDoc.location)
         })
 
-        console.log(protestRef.uid);
         let observer = protestRef.doc(protestRef.uid).onSnapshot(snapshot => {
-          console.log("Received snapshot: ${snapshot}");
-          console.log(snapshot.data());
-          this.setState({protest:snapshot.data().protest});
+          this.setState({ protest: snapshot.data().protest });
         }, err => {
           console.log('Encountered error: ${err}');
         });
@@ -34,12 +31,12 @@ class Location extends Component{
     })
   }
 
-  render(){
-    return(
-    <div>  {this.state.database} </div>
+  render() {
+    return (
+      <div>  {this.state.database} </div>
     )
-    }
   }
+}
 
 export default Location;
 // getFullname = db => {

@@ -1,13 +1,13 @@
 import firebase from './Firestore';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Login from './Login';
 
-class Fullname extends Component{
-  constructor(){
+class Fullname extends Component {
+  constructor() {
     super();
-    this.state = {signedIn: false, currentUser: null, fullname:''};
+    this.state = { signedIn: false, currentUser: null, fullname: '' };
   }
-  componentWillMount(){
+  componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({
@@ -16,11 +16,8 @@ class Fullname extends Component{
         });
         const db = firebase.firestore();
         const userRef = db.collection("users");
-        console.log(user.uid);
         let observer = userRef.doc(user.uid).onSnapshot(docSnapshot => {
-          console.log("Received doc snapshot: ${docSnapshot}");
-          console.log(docSnapshot.data());
-          this.setState({fullname:docSnapshot.data().fullname});
+          this.setState({ fullname: docSnapshot.data().fullname });
         }, err => {
           console.log('Encountered error: ${err}');
         });
@@ -28,23 +25,22 @@ class Fullname extends Component{
     })
   }
 
-  render(){
-    if (this.state.signedIn){
-      console.log(this.state.fullname);
-      return(
+  render() {
+    if (this.state.signedIn) {
+      return (
         <div>
-        {this.state.fullname}
+          {this.state.fullname}
         </div>
       );
     } else {
-      return(
+      return (
         <div>
-        <Login/>
+          <Login />
         </div>
       )
     }
-    }
   }
+}
 
 export default Fullname;
 // getFullname = db => {

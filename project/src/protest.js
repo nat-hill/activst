@@ -30,7 +30,8 @@ class Protest extends Component {
       signedIn: false,
       currentUser: null,
       varTimestamp: null,
-      accountTimestamp: null
+      accountTimestamp: null,
+      protestID: null
     };
   };
 
@@ -45,6 +46,7 @@ class Protest extends Component {
       accessToken: 'pk.eyJ1IjoiY3VzdW1tZXIiLCJhIjoiY2p5NXc5cXhwMDFxeTNmbzhwNWpsZTRibSJ9.204smoZZqhejVVBy7oiHfg'
     }).addTo(mymap);
     console.log('didmount')
+    console.log(this)
   }
   componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
@@ -62,7 +64,6 @@ class Protest extends Component {
       firebase.firestore().collection("users").doc(user.uid).onSnapshot(docSnapshot => {
         this.setState({ varTimestamp: docSnapshot.data().submitTimestamp });
         this.setState({ accountTimestamp: docSnapshot.data().accountTimestamp });
-
       })
       console.log('willmount')
     });
@@ -93,16 +94,28 @@ class Protest extends Component {
             db.settings({
               timestampsInSnapshots: true
             });
-            db.collection("protest").add({
+            const userRef = db.collection("users");
+            const protestRef = db.collection("protest");
+            protestRef.add({
               protestname: this.state.protestname,
               time: this.state.time,
               location: this.state.location,
               description: this.state.description,
               keyTerm: this.state.keyTerm
-            });
-            db.collection("users").doc(user.uid).update({
-              submitTimestamp: Firebase.firestore.Timestamp.now()
             })
+              .then(docRef => {
+                this.setState({ protestID: docRef.id })
+                console.log("Document written with ID: ", docRef.id);
+                console.log("protestID state is ", this.state.protestID)
+                userRef.doc(user.uid).update({
+                  submitTimestamp: Firebase.firestore.Timestamp.now(),
+                  protests: firebase.firestore.FieldValue.arrayUnion(this.state.protestID)
+                })
+              })
+              .catch(error => console.error("Error adding document: ", error));
+
+            console.log('protestIDs after push', this.state.protestIDs)
+
             this.setState({
               protestname: "",
               time: "",
@@ -141,23 +154,23 @@ class Protest extends Component {
     var acc_minRemaining = Math.floor((acc_secondsRemaining % 3600) / 60)
     var acc_secondsRemaining = acc_secondsRemaining % 60
 
-    if (account_seconds_diff < 86400){
+    if (account_seconds_diff < 86400) {
       return (
-      <div>
-        <NavBar />
-        <div class="plzalign">
-          <div class="form-style-5">
-            <div class="Wait-24-hrs-page">
-              <p>You have created your account in the past 24 hours.</p><br />
-              <p>You have {acc_hoursRemaining} hours, {acc_minRemaining} minutes, and {acc_secondsRemaining} seconds remaining before you can begin creating protests.</p><br />
-              <p>Thank you.</p>
+        <div>
+          <NavBar />
+          <div class="plzalign">
+            <div class="form-style-5">
+              <div class="Wait-24-hrs-page">
+                <p>You have created your account in the past 24 hours.</p><br />
+                <p>You have {acc_hoursRemaining} hours, {acc_minRemaining} minutes, and {acc_secondsRemaining} seconds remaining before you can begin creating protests.</p><br />
+                <p>Thank you.</p>
+              </div>
             </div>
           </div>
+          <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
-        <div id="mapid1" class='BACKGROUNDMAP'></div>
-      </div>
-    )
-    } else if (seconds_diff < 86400) {
+      )
+    } else if (seconds_diff >= 86400) {
       return (
         <div>
           <NavBar />
@@ -173,7 +186,7 @@ class Protest extends Component {
           <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
       )
-    } else if (seconds_diff >= 86400) {
+    } else if (seconds_diff < 86400) {
       return (
         <div>
           <NavBar />
@@ -246,66 +259,66 @@ class Protest extends Component {
       return (
         <div>
           <NavBar />
-            <div class="form-style-5">
-              <form class="plzalign" onSubmit={this.addProtest}>
-                <p>Welcome! You can create a protest every 24 hours, so be mindful of what you post. -Activst</p>
-                <input
-                  required
-                  type="text"
-                  name="protestname"
-                  placeholder="Protest Name"
-                  onChange={this.updateInput}
-                  value={this.state.protestname}
-                  onChange={this.updateInput}
-                />
+          <div class="form-style-5">
+            <form class="plzalign" onSubmit={this.addProtest}>
+              <p>Welcome! You can create a protest every 24 hours, so be mindful of what you post. -Activst</p>
+              <input
+                required
+                type="text"
+                name="protestname"
+                placeholder="Protest Name"
+                onChange={this.updateInput}
+                value={this.state.protestname}
+                onChange={this.updateInput}
+              />
 
-                <input
-                  required
-                  type="datetime"
-                  name="time"
-                  placeholder="Time & Date"
-                  onChange={this.updateInput}
-                />
-                <br />
-                <input
-                  required
-                  type="text"
-                  name="location"
-                  placeholder="Location"
-                  onChange={this.updateInput}
-                  value={this.state.location}
-                  onChange={this.updateInput}
-                />
-                <br />
-                <input
-                  required
-                  type="text"
-                  name="description"
-                  placeholder="Give a brief description of your protest."
-                  onChange={this.updateInput}
-                  value={this.state.description}
-                  onChange={this.updateInput}
-                ></input>
+              <input
+                required
+                type="datetime"
+                name="time"
+                placeholder="Time & Date"
+                onChange={this.updateInput}
+              />
+              <br />
+              <input
+                required
+                type="text"
+                name="location"
+                placeholder="Location"
+                onChange={this.updateInput}
+                value={this.state.location}
+                onChange={this.updateInput}
+              />
+              <br />
+              <input
+                required
+                type="text"
+                name="description"
+                placeholder="Give a brief description of your protest."
+                onChange={this.updateInput}
+                value={this.state.description}
+                onChange={this.updateInput}
+              ></input>
 
 
 
-                <label>
-                  Pick the option that best describes your protest:
+              <label>
+                Pick the option that best describes your protest:
       <select name="keyTerm" onChange={this.updateInput.bind(this)}>
-                    <option value="globalwarming" name="keyTerm" >Global Warming</option>
-                    <option value="genderequality" name="keyTerm">Gender Equality</option>
-                    <option value="racialequality" name="keyTerm">Racial Equality</option>
-                    <option value="policebrutality" name="keyTerm">Police Brutality</option>
-                    <option value="lgbtq" name="keyTerm">LGBTQ+</option>
-                    <option value="other" name="keyTerm">Other</option>
-                  </select>
-                </label>
+                  <option value="globalwarming" name="keyTerm" >Global Warming</option>
+                  <option value="genderequality" name="keyTerm">Gender Equality</option>
+                  <option value="racialequality" name="keyTerm">Racial Equality</option>
+                  <option value="policebrutality" name="keyTerm">Police Brutality</option>
+                  <option value="lgbtq" name="keyTerm">LGBTQ+</option>
+                  <option value="other" name="keyTerm">Other</option>
+                </select>
+              </label>
 
 
-                <div class="submitButton">
-                  <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
-                </div>
-              </form>
+              <div class="submitButton">
+                <button type="submit" class="btn btn-lg btn-primary" >Submit</button>
+              </div>
+            </form>
           </div>
           <div id="mapid1" class='BACKGROUNDMAP'></div>
         </div>
